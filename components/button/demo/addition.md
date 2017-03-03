@@ -15,22 +15,22 @@ title:
 
 
 ````jsx
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 const SubmitGroup = Button.SubmitGroup;
 
 ReactDOM.render(
   <div>
     <h4>Huge Size</h4>
-      <Button type="primary" size="huge">Huge</Button>
-    
+    <Button type="primary" size="huge">Huge</Button>
+
     <h4>SubmitGroup</h4>
-      <Button type="primary" promise>promise</Button>
-    
+    <Button type="primary" promise>promise</Button>
+
     <h4>SubmitGroup</h4>
-      <SubmitGroup size="huge">
-        <Button size="huge">返回</Button>
-        <Button size="huge" type="primary">提交</Button>
-      </SubmitGroup>
+    <SubmitGroup size="huge">
+      <Button size="huge">返回</Button>
+      <Button size="huge" type="primary">提交</Button>
+    </SubmitGroup>
 
   </div>,
   mountNode
