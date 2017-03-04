@@ -21,7 +21,7 @@ export { default as Badge } from './badge';
 
 export { default as Breadcrumb } from './breadcrumb';
 
-export { default as Button } from './button';
+export { default as Button } from './custom/button';
 
 export { default as Calendar } from './calendar';
 
