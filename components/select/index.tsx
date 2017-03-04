@@ -84,8 +84,35 @@ export default class Select extends React.Component<SelectProps, any> {
     choiceTransitionName: PropTypes.string,
   };
 
+  refs: {
+    rcSelect: any;
+  };
+
   context: SelectContext;
 
+  getValue = () => {
+    // 禁止使用 this.refs.rcSelect.setValue()
+    const rcValue = this.refs.rcSelect.getValue();
+
+    // 用副本吧，不要返回原对象
+    return rcValue.map(item => {
+      const { key , label } = item;
+
+      let result = {
+        value: key,
+        child: label,
+        extra: {},
+      };
+
+      if (item.extra) {
+        result.extra =  { ...item.extra };
+      } else {
+        delete result.extra;
+      }
+
+      return result;
+    });
+  }
   render() {
     const {
       prefixCls,
@@ -119,6 +146,7 @@ export default class Select extends React.Component<SelectProps, any> {
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContent}
+        ref="rcSelect"
       />
     );
   }
