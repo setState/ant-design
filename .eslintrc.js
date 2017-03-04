@@ -40,6 +40,7 @@ const eslintrc = {
     'jsx-a11y/anchor-has-content': 0,
     'react/no-danger': 0,
     'comma-dangle': ['error', 'always-multiline'],
+    'react/no-string-refs': 0,
   },
 };
 
