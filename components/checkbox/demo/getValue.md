@@ -19,8 +19,8 @@ class App extends React.Component {
   state = {
     checked: true,
   };
-  onClick(){
-    this.setState({checked:this.refs.cBox.getValue()})
+  onClick = () => {
+    this.setState({ checked: this.refs.cBox.getValue() });
   };
   render() {
     return (
@@ -31,9 +31,9 @@ class App extends React.Component {
           </Checkbox>
         </p>
         <p>
-          <span>{this.state.checked?"checked":"uncheked"}</span> 
+          <span>{this.state.checked ? 'checked' : 'uncheked'}</span>
           <Button type="primary" size="small"
-            onClick={this.onClick.bind(this)}
+            onClick={this.onClick}
           >
             获取值
           </Button>

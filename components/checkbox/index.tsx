@@ -27,14 +27,14 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     prefixCls: 'ant-checkbox',
     indeterminate: false,
   };
-  //ux start
+  // ux start
   refs: {
     rcCheckbox: any;
   };
   getValue() {
     return this.refs.rcCheckbox.state.checked;
   }
-  //ux end
+  // ux end
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
