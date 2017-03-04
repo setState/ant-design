@@ -1,25 +1,15 @@
-import RcCheckbox from 'rc-checkbox';
-import React from 'react';
-import CheckboxGroup from './Group';
-import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+# 定制
 
-export interface CheckboxProps {
-  prefixCls?: string;
-  /** 指定当前是否选中 */
-  checked?: boolean;
-  /** 初始是否选中 */
-  defaultChecked?: boolean;
-  /** indeterminate 状态，只负责样式控制 */
-  indeterminate?: boolean;
-  /** 变化时回调函数 */
-  onChange?: React.FormEventHandler<any>;
-  onMouseEnter?: React.MouseEventHandler<any>;
-  onMouseLeave?: React.MouseEventHandler<any>;
-  style?: React.CSSProperties;
-  disabled?: boolean;
-  className?: string;
-}
+分为两种
+
+- HOC
+- 原文件改写
+
+## Checkbox
+
+添加`rcCheckbox`的ref,以及getValue
+
+```jsx
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
   static Group = CheckboxGroup;
@@ -61,6 +51,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
           prefixCls={prefixCls}
           className={checkboxClass}
           children={null}
+          //ux
           ref="rcCheckbox"
         />
         {children !== undefined ? <span>{children}</span> : null}
@@ -68,3 +59,5 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     );
   }
 }
+
+```
