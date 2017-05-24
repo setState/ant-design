@@ -1,0 +1,28 @@
+@import "number";
+
+@number-prefix-cls: ant-number;
+
+.@{number-prefix-cls}-group {
+  .input-group(~"@{number-prefix-cls}-input");
+}
+
+.@{number-prefix-cls} {
+  width: 100%;
+
+  &:hover {
+    .hover(@border-color-base);
+  }
+  /* stylelint-disable */
+  &:focus {
+  }
+
+  &-focused {
+  }
+  /* stylelint-enable */
+}
+
+.@{number-prefix-cls} {
+  &-input {
+    border: 1px solid @border-color-base;
+  }
+}

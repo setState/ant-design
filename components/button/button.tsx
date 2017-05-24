@@ -27,7 +27,7 @@ function insertSpace(child) {
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger'
 export type ButtonShape = 'circle' | 'circle-outline'
-export type ButtonSize = 'small' | 'large'
+export type ButtonSize = 'small' | 'large' | 'huge'
 
 export interface ButtonProps {
   type?: ButtonType;
@@ -43,10 +43,12 @@ export interface ButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  promise?: boolean;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
   static Group: any;
+  static SubmitGroup: any;
   static __ANT_BUTTON = true;
 
   static defaultProps = {
@@ -59,12 +61,13 @@ export default class Button extends React.Component<ButtonProps, any> {
   static propTypes = {
     type: React.PropTypes.string,
     shape: React.PropTypes.oneOf(['circle', 'circle-outline']),
-    size: React.PropTypes.oneOf(['large', 'default', 'small']),
+    size: React.PropTypes.oneOf(['large', 'default', 'small', 'huge']),
     htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
     onClick: React.PropTypes.func,
     loading: React.PropTypes.bool,
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
+    promise: React.PropTypes.bool,
   };
 
   timeout: number;
@@ -123,7 +126,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      type, shape, size = '', className, htmlType, children, icon, prefixCls, ghost, ...others,
+      type, shape, size = '', className, htmlType, children, icon, prefixCls, ghost, promise, ...others,
     } = this.props;
 
     const { loading, clicked } = this.state;
@@ -132,6 +135,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     const sizeCls = ({
       large: 'lg',
       small: 'sm',
+      huge: 'hg',
     })[size] || '';
 
     const classes = classNames(prefixCls, {
@@ -142,6 +146,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
+      'promise-button': promise,
     }, className);
 
     const iconType = loading ? 'loading' : icon;

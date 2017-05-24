@@ -1,0 +1,26 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "./mixin";
+@import "./search-input";
+
+// Input styles
+.@{ant-prefix}-input {
+  .input;
+}
+
+//== Style for input-group: input with label, with button or dropdown...
+.@{ant-prefix}-input-group {
+  .input-group(~"@{ant-prefix}-input");
+}
+
+// Input with suffix
+.@{ant-prefix}-input-preSuffix-wrapper {
+  .input-preSuffix-wrapper(~"@{ant-prefix}-input");
+}
+
+// chrome only hack, fix https://github.com/ant-design/ant-design/issues/4987
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+  input.@{ant-prefix}-input {
+    line-height: inherit;
+  }
+}

@@ -198,6 +198,49 @@ exports[`test renders ./components/select/demo/coordinate.md correctly 1`] = `
 </div>
 `;
 
+exports[`test renders ./components/select/demo/getValue.md correctly 1`] = `
+<div>
+  <p
+    style="margin-bottom:20px;">
+    <span>
+      结果: 
+    </span>
+  </p>
+  <div
+    class="ant-select ant-select-enabled ant-select-allow-clear"
+    style="width:120px;">
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0">
+      <div
+        class="ant-select-selection__rendered" />
+      <span
+        class="ant-select-selection__clear"
+        style="user-select:none;-webkit-user-select:none;display:none;"
+        unselectable="unselectable" />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable">
+        <b />
+      </span>
+    </div>
+  </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      获取值
+    </span>
+  </button>
+</div>
+`;
+
 exports[`test renders ./components/select/demo/label-in-value.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"

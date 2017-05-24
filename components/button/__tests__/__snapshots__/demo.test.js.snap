@@ -1,3 +1,48 @@
+exports[`test renders ./components/button/demo/addition.md correctly 1`] = `
+<div>
+  <h4>
+    Huge Size
+  </h4>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-hg"
+    type="button">
+    <span>
+      Huge
+    </span>
+  </button>
+  <h4>
+    SubmitGroup
+  </h4>
+  <button
+    class="ant-btn ant-btn-primary promise-button"
+    type="button">
+    <span>
+      promise
+    </span>
+  </button>
+  <h4>
+    SubmitGroup
+  </h4>
+  <div
+    class="ant-btn-submit-group ant-btn-submit-group-hg">
+    <button
+      class="ant-btn ant-btn-hg"
+      type="button">
+      <span>
+        返 回
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-hg"
+      type="button">
+      <span>
+        提 交
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`test renders ./components/button/demo/basic.md correctly 1`] = `
 <div>
   <button

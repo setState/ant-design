@@ -156,6 +156,40 @@ exports[`test renders ./components/checkbox/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
+exports[`test renders ./components/checkbox/demo/getValue.md correctly 1`] = `
+<div>
+  <p
+    style="margin-bottom:20px;">
+    <label
+      class="ant-checkbox-wrapper">
+      <span
+        class="ant-checkbox">
+        <input
+          class="ant-checkbox-input"
+          type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
+      </span>
+      <span>
+        checkbox
+      </span>
+    </label>
+  </p>
+  <p>
+    <span>
+      checked
+    </span>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button">
+      <span>
+        获取值
+      </span>
+    </button>
+  </p>
+</div>
+`;
+
 exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
 <div>
   <div

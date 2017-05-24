@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export type ButtonSize = 'small' | 'large'
+export type ButtonSize = 'small' | 'large' | 'huge'
 
 export interface ButtonGroupProps {
   size?: ButtonSize;
@@ -18,7 +18,8 @@ export default function ButtonGroup(props: ButtonGroupProps) {
   const sizeCls = ({
     large: 'lg',
     small: 'sm',
-  })[size] || '';
+    huge: 'hg',
+    })[size] || '';
 
   const classes = classNames(prefixCls, {
     [`${prefixCls}-${sizeCls}`]: sizeCls,

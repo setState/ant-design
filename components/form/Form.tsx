@@ -110,6 +110,9 @@ export default class Form extends React.Component<FormProps, any> {
   static create = (options?: FormCreateOption): ComponentDecorator => {
     const formWrapper = createDOMForm(assign({
       fieldNameProp: 'id',
+      getDisplayName(WrappedComponent) {
+        return WrappedComponent.displayName || WrappedComponent.name || 'WrappedComponent';
+      },
     }, options, {
       fieldMetaProp: FIELD_META_PROP,
     }));
