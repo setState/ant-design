@@ -7,7 +7,7 @@ export interface ConfigOptions {
     prefixCls?: string;
     getContainer?: () => HTMLElement;
 }
-declare var _default: {
+declare const _default: {
     info(content: React.ReactNode, duration?: number | undefined, onClose?: ConfigOnClose | undefined): () => void;
     success(content: React.ReactNode, duration?: number | undefined, onClose?: ConfigOnClose | undefined): () => void;
     error(content: React.ReactNode, duration?: number | undefined, onClose?: ConfigOnClose | undefined): () => void;

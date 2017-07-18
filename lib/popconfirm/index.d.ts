@@ -8,5 +8,5 @@ export interface PopconfirmProps extends AbstractTooltipProps {
     okText?: React.ReactNode;
     cancelText?: React.ReactNode;
 }
-declare var _default: React.ComponentClass<PopconfirmProps>;
+declare const _default: React.ComponentClass<PopconfirmProps>;
 export default _default;

@@ -13,6 +13,8 @@ export interface ColumnProps<T> {
     onFilter?: (value: any, record: T) => boolean;
     filterMultiple?: boolean;
     filterDropdown?: React.ReactNode;
+    filterDropdownVisible?: boolean;
+    onFilterDropdownVisibleChange?: (visible: boolean) => void;
     sorter?: boolean | ((a: any, b: any) => number);
     colSpan?: number;
     width?: string | number;
@@ -22,6 +24,7 @@ export interface ColumnProps<T> {
     filteredValue?: any[];
     sortOrder?: boolean | ('ascend' | 'descend');
     children?: ColumnProps<T>[];
+    onCellClick?: (record: T, event: any) => void;
 }
 export default class Column<T> extends React.Component<ColumnProps<T>, React.ComponentState> {
 }

@@ -5,5 +5,5 @@ export interface FilterDropdownMenuWrapperProps {
     children?: any;
     className?: string;
 }
-declare var _default: (props: FilterDropdownMenuWrapperProps) => JSX.Element;
+declare const _default: (props: FilterDropdownMenuWrapperProps) => JSX.Element;
 export default _default;

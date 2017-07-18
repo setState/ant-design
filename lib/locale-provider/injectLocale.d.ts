@@ -8,5 +8,5 @@ export interface ComponentContext {
         [key: string]: any;
     };
 }
-declare var _default: (componentName: string, defaultLocale: any) => <P>(Component: typeof React.Component) => React.ComponentClass<P>;
+declare const _default: (componentName: string, defaultLocale: any) => <P>(Component: typeof React.Component) => React.ComponentClass<P>;
 export default _default;

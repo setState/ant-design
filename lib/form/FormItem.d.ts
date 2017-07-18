@@ -2,15 +2,12 @@
 import React from 'react';
 import { ColProps } from '../grid/col';
 import { WrappedFormUtils } from './Form';
-export interface FormItemColOption extends ColProps {
-    span: number;
-}
 export interface FormItemProps {
     prefixCls?: string;
     id?: string;
     label?: React.ReactNode;
-    labelCol?: FormItemColOption;
-    wrapperCol?: FormItemColOption;
+    labelCol?: ColProps;
+    wrapperCol?: ColProps;
     help?: React.ReactNode;
     extra?: React.ReactNode;
     validateStatus?: 'success' | 'warning' | 'error' | 'validating';
@@ -58,7 +55,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     getMeta(): any;
     renderHelp(): JSX.Element | null;
     renderExtra(): JSX.Element | null;
-    getValidateStatus(): "" | "success" | "error" | "validating";
+    getValidateStatus(): "" | "error" | "success" | "validating";
     renderValidateWrapper(c1: any, c2: any, c3: any): JSX.Element;
     renderWrapper(children: any): JSX.Element;
     isRequired(): any;

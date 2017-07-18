@@ -6,11 +6,11 @@
   margin-left: 0;
   margin-right: 0;
   height: 100%;
+  line-height: 28px;
 }
 .ant-select-auto-complete.ant-select .ant-select-selection__placeholder {
   margin-left: 8px;
   margin-right: 8px;
-  top: 14px;
 }
 .ant-select-auto-complete.ant-select-allow-clear .ant-select-selection:hover .ant-select-selection__rendered {
   margin-right: 0 !important;
@@ -18,15 +18,15 @@
 .ant-select-auto-complete.ant-select .ant-input {
   background: transparent;
 }
-.ant-select-auto-complete.ant-select-lg .ant-select-selection__placeholder {
-  top: 16px;
+.ant-select-auto-complete.ant-select-lg .ant-select-selection__rendered {
+  line-height: 32px;
 }
 .ant-select-auto-complete.ant-select-lg .ant-input {
   padding: 6px 7px;
   height: 32px;
 }
-.ant-select-auto-complete.ant-select-sm .ant-select-selection__placeholder {
-  top: 11px;
+.ant-select-auto-complete.ant-select-sm .ant-select-selection__rendered {
+  line-height: 22px;
 }
 .ant-select-auto-complete.ant-select-sm .ant-input {
   padding: 1px 7px;

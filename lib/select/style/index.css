@@ -213,7 +213,7 @@
   top: 50%;
   left: 0;
   right: 9px;
-  color: #ccc;
+  color: rgba(0, 0, 0, 0.25);
   line-height: 20px;
   height: 20px;
   max-width: 100%;
@@ -229,6 +229,7 @@
 .ant-select-search--inline {
   position: absolute;
   height: 100%;
+  width: 100%;
 }
 .ant-select-selection--multiple .ant-select-search--inline {
   float: left;
@@ -277,8 +278,10 @@
 .ant-select-selection--multiple .ant-select-search--inline {
   width: auto;
   padding: 0;
+  max-width: 100%;
 }
 .ant-select-selection--multiple .ant-select-search--inline .ant-select-search__field {
+  max-width: 100%;
   width: 0.75em;
 }
 .ant-select-selection--multiple .ant-select-selection__rendered {

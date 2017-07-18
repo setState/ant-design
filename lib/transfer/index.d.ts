@@ -31,5 +31,5 @@ export interface TransferProps {
     lazy?: {};
     onScroll?: (direction: 'left' | 'right', e: Event) => void;
 }
-declare var _default: React.ComponentClass<TransferProps>;
+declare const _default: React.ComponentClass<TransferProps>;
 export default _default;

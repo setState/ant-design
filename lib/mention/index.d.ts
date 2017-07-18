@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import React from 'react';
 export interface MentionProps {
-    prefixCls: string;
+    prefixCls?: string;
     suggestionStyle?: React.CSSProperties;
     suggestions?: Array<any>;
     onSearchChange?: Function;
@@ -37,14 +37,15 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     static toString: any;
     static toContentState: any;
     static toEditorState: (text: any) => any;
+    private mentionEle;
     constructor(props: any);
-    componentWillReceiveProps({suggestions}: {
-        suggestions: any;
-    }): void;
+    componentWillReceiveProps(nextProps: MentionProps): void;
     onSearchChange: (value: any, prefix: any) => any;
     onChange: (editorState: any) => void;
     defaultSearchChange(value: String): void;
     onFocus: (ev: any) => void;
     onBlur: (ev: any) => void;
+    focus: () => void;
+    mentionRef: (ele: any) => void;
     render(): JSX.Element;
 }

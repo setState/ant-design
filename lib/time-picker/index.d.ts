@@ -1,6 +1,11 @@
 /// <reference types="react" />
 import React from 'react';
 import moment from 'moment';
+export declare function generateShowHourMinuteSecond(format: string): {
+    showHour: boolean;
+    showMinute: boolean;
+    showSecond: boolean;
+};
 export interface TimePickerProps {
     className?: string;
     size?: 'large' | 'default' | 'small';
@@ -12,6 +17,7 @@ export interface TimePickerProps {
     onOpenChange?: (open: boolean) => void;
     disabled?: boolean;
     placeholder?: string;
+    prefixCls?: string;
     hideDisabledOptions?: boolean;
     disabledHours?: () => number[];
     disabledMinutes?: (selectedHour: number) => number[];
@@ -21,5 +27,5 @@ export interface TimePickerProps {
     addon?: Function;
     use12Hours?: boolean;
 }
-declare var _default: React.ComponentClass<TimePickerProps>;
+declare const _default: React.ComponentClass<TimePickerProps>;
 export default _default;

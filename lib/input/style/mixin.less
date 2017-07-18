@@ -63,7 +63,7 @@
     .active();
   }
 
-  &[disabled] {
+  &-disabled {
     .disabled();
   }
 
@@ -101,6 +101,9 @@
 
   > [class*="col-"] {
     padding-right: 8px;
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   &-addon,
@@ -304,7 +307,7 @@
     z-index: 1;
   }
 
-  &:hover .@{inputClass} {
+  &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
     .hover();
   }
 

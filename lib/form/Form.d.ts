@@ -41,7 +41,7 @@ export declare type ValidationRule = {
     /** transform a value before validation */
     transform?: (value: any) => any;
     /** custom validate function (Note: callback must be called) */
-    validator?: (rule: any, value: any, callback: any) => any;
+    validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
 };
 export declare type ValidateCallback = (erros: any, values: any) => void;
 export declare type WrappedFormUtils = {
@@ -93,7 +93,7 @@ export interface FormComponentProps {
     form: WrappedFormUtils;
 }
 export interface ComponentDecorator<TOwnProps> {
-    (component: React.ComponentClass<FormComponentProps & TOwnProps>): any;
+    (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
 }
 export default class Form extends React.Component<FormProps, any> {
     static defaultProps: {
