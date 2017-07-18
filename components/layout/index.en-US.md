@@ -13,10 +13,10 @@ Handling the overall layout of a page.
 
 The first level of the navigation is placed near by a logo inclined left, and the secondary menu is placed inclined right.
 
-- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level of navigation `48px`。
-- Top Navigation(contents page): the height of the first level navigation `80px`, the second level of navigation `56px`。
-- Calculation formula of a top navigation:`48+8n`.
-- Calculation formula a aside navigation:`200+8n`.
+- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level of navigation `48px`.
+- Top Navigation(contents page): the height of the first level navigation `80px`, the second level of navigation `56px`.
+- Calculation formula of a top navigation: `48+8n`.
+- Calculation formula a aside navigation: `200+8n`.
 
 ### Interaction rules
 
@@ -96,6 +96,18 @@ collapsedWidth | width of the collapsed sidebar, by setting to `0` a special tri
 breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
 style | to custom the styles | object | -
 className | container className | string | -
+
+#### breakpoint width
+
+```js
+{
+  xs: '480px',
+  sm: '768px',
+  md: '992px',
+  lg: '1200px',
+  xl: '1600px',
+}
+```
 
 > Note: If you want to wrap the `Sider`, do not forget to add this setting to the customized component: `__ANT_LAYOUT_SIDER = true`. e.g.
 

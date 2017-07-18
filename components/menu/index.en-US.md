@@ -11,7 +11,9 @@ Menu list of Navigation.
 
 Navigation menu is important for a website, it helps users jump from one site section to another quickly. Mostly, it includes top navigation and side navigation. Top navigation provides all the category and functions of the website. Side navigation provides the Multi-level structure of the website.
 
-More layout and samples: [layout](/docs/spec/layout).
+More layouts with navigation: [layout](/components/layout).
+
+## API
 
 ```html
 <Menu>
@@ -22,9 +24,7 @@ More layout and samples: [layout](/docs/spec/layout).
 </Menu>
 ```
 
-## API
-
-### Menu props
+### Menu
 
 | Param    | Description   | Type     | Default value       |
 |----------|---------------|----------|--------------|
@@ -42,17 +42,18 @@ More layout and samples: [layout](/docs/spec/layout).
 | style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
 | multiple | Allow select multiple item | boolean | false |
+| inlineCollapsed | specified the collapsed status when menu is inline mode | boolean | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item props
+### Menu.Item
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
 | disabled    | disabled or not | boolean   |  false  |
 | key   | unique id of the menu item |  string |  |
 
-### Menu.SubMenu props
+### Menu.SubMenu
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
@@ -60,9 +61,9 @@ More layout and samples: [layout](/docs/spec/layout).
 | key   | unique id of the menu item |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
 | children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
-| onTitleClick | callback of the clicked sub menu title | Function({ eventKey, domEvent }) |  |
+| onTitleClick | callback of the clicked sub menu title | Function({ key, domEvent }) |  |
 
-### Menu.ItemGroup props
+### Menu.ItemGroup
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|

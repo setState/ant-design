@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
-import assign from 'object-assign';
 import createReactClass from 'create-react-class';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
@@ -52,7 +51,7 @@ export type ValidationRule = {
   /** transform a value before validation */
   transform?: (value: any) => any;
   /** custom validate function (Note: callback must be called) */
-  validator?: (rule: any, value: any, callback: any) => any;
+  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
 };
 
 export type ValidateCallback = (erros: any, values: any) => void;
@@ -111,7 +110,7 @@ export interface FormComponentProps {
 
 // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/9951
 export interface ComponentDecorator<TOwnProps> {
-  (component: React.ComponentClass<FormComponentProps & TOwnProps>): any;
+  (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
@@ -139,11 +138,11 @@ export default class Form extends React.Component<FormProps, any> {
   static Item = FormItem;
 
   static create = function<TOwnProps>(options?: FormCreateOption): ComponentDecorator<TOwnProps> {
-    const formWrapper = createDOMForm(assign({
+    const formWrapper = createDOMForm({
       fieldNameProp: 'id',
-    }, options, {
+      ...options,
       fieldMetaProp: FIELD_META_PROP,
-    }));
+    });
 
     /* eslint-disable react/prefer-es6-class */
     return (Component) => formWrapper(createReactClass({

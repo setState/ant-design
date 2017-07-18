@@ -34,9 +34,8 @@
       margin: 0;
       cursor: pointer;
       text-decoration: none;
-      vertical-align: top;
       color: @text-color;
-      transition: all 0.3s ease;
+      transition: all .3s;
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -46,7 +45,7 @@
     }
     > span {
       &.@{select-tree-prefix-cls}-checkbox {
-        margin: 2px 4px 0 0;
+        margin: 0 4px 0 0;
       }
       &.@{select-tree-prefix-cls}-switcher,
       &.@{select-tree-prefix-cls}-iconEle {
@@ -99,12 +98,16 @@
       display: block;
     }
   }
-  &-treenode-disabled {
+  li&-treenode-disabled {
     > span,
-    > a,
-    > a span {
+    > .@{select-tree-prefix-cls}-node-content-wrapper,
+    > .@{select-tree-prefix-cls}-node-content-wrapper span,
+    > span.@{select-tree-prefix-cls}-switcher {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+    > .@{select-tree-prefix-cls}-node-content-wrapper:hover {
+      background: transparent;
     }
   }
   &-icon__open {

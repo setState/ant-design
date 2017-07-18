@@ -2,7 +2,7 @@
 order: 4
 title:
   zh-CN: 栅格卡片
-  en-US: Grid card
+  en-US: Card in column
 ---
 
 ## zh-CN
@@ -11,35 +11,24 @@ title:
 
 ## en-US
 
-Cards usually cooperate with grid layout in overview page.
+Cards usually cooperate with grid column layout in overview page.
 
 ````jsx
 import { Card, Col, Row } from 'antd';
 
 ReactDOM.render(
   <div style={{ background: '#ECECEC', padding: '30px' }}>
-    <Row>
-      <Col span="8">
+    <Row gutter={16}>
+      <Col span={8}>
         <Card title="Card title" bordered={false}>Card content</Card>
       </Col>
-      <Col span="8">
+      <Col span={8}>
         <Card title="Card title" bordered={false}>Card content</Card>
       </Col>
-      <Col span="8">
+      <Col span={8}>
         <Card title="Card title" bordered={false}>Card content</Card>
       </Col>
     </Row>
   </div>
 , mountNode);
-````
-
-````css
-/* Increase grid spacing of 16px  */
-.code-box-demo .ant-row {
-  margin-left: -8px;
-  margin-right: -8px;
-}
-.code-box-demo .ant-row > div {
-  padding: 0 8px;
-}
 ````

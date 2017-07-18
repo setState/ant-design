@@ -12,7 +12,9 @@ subtitle: 导航菜单
 
 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
 
-更多布局和导航的范例可以参考：[常用布局](/docs/spec/layout)。
+更多布局和导航的使用可以参考：[通用布局](/components/layout)。
+
+## API
 
 ```html
 <Menu>
@@ -23,9 +25,7 @@ subtitle: 导航菜单
 </Menu>
 ```
 
-## API
-
-### Menu props
+### Menu
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
@@ -42,17 +42,18 @@ subtitle: 导航菜单
 | style | 根节点样式 | object | |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
 | multiple | 是否允许多选 | boolean | false |
+| inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item props
+### Menu.Item
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | boolean   |  false  |
 | key   | item 的唯一标志 |  string |  |
 
-### Menu.SubMenu props
+### Menu.SubMenu
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
@@ -60,9 +61,9 @@ subtitle: 导航菜单
 | key | 唯一标志 |  string |  |
 | title    | 子菜单项值 | string\|ReactNode |    |
 | children | 子菜单的菜单项 | Array<MenuItem\|SubMenu> |  |
-| onTitleClick | 点击子菜单标题 | Function({ eventKey, domEvent }) |  |
+| onTitleClick | 点击子菜单标题 | Function({ key, domEvent }) |  |
 
-### Menu.ItemGroup props
+### Menu.ItemGroup
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|

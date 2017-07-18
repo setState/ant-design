@@ -45,7 +45,7 @@ describe('RangePicker', () => {
     const wrapper = mount(
       <RangePicker
         ranges={{
-          'This Month': [moment(), moment().endOf('month')],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
         }}
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
@@ -72,7 +72,7 @@ describe('RangePicker', () => {
     );
     wrapper.setProps({ value: [] });
     const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
-    expect(() => rangeCalendarWrapper.find('.ant-calendar-today').simulate('click').simulate('click'))
+    expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
       .not.toThrow();
   });
 });
