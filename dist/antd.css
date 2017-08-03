@@ -1,5 +1,5 @@
 /*!
- * antd v2.12.1
+ * antd v2.12.3
  * 
  * Copyright 2015-present, Alipay, Inc.
  * All rights reserved.
@@ -1424,7 +1424,6 @@ samp {
           animation-name: antFadeIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .fade-leave.fade-leave-active {
   -webkit-animation-name: antFadeOut;
@@ -1498,7 +1497,6 @@ samp {
           animation-name: antMoveUpIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .move-up-leave.move-up-leave-active {
   -webkit-animation-name: antMoveUpOut;
@@ -1540,7 +1538,6 @@ samp {
           animation-name: antMoveDownIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .move-down-leave.move-down-leave-active {
   -webkit-animation-name: antMoveDownOut;
@@ -1582,7 +1579,6 @@ samp {
           animation-name: antMoveLeftIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .move-left-leave.move-left-leave-active {
   -webkit-animation-name: antMoveLeftOut;
@@ -1624,7 +1620,6 @@ samp {
           animation-name: antMoveRightIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .move-right-leave.move-right-leave-active {
   -webkit-animation-name: antMoveRightOut;
@@ -1950,7 +1945,6 @@ samp {
           animation-name: antSlideUpIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .slide-up-leave.slide-up-leave-active {
   -webkit-animation-name: antSlideUpOut;
@@ -1992,7 +1986,6 @@ samp {
           animation-name: antSlideDownIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .slide-down-leave.slide-down-leave-active {
   -webkit-animation-name: antSlideDownOut;
@@ -2034,7 +2027,6 @@ samp {
           animation-name: antSlideLeftIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .slide-left-leave.slide-left-leave-active {
   -webkit-animation-name: antSlideLeftOut;
@@ -2076,7 +2068,6 @@ samp {
           animation-name: antSlideRightIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .slide-right-leave.slide-right-leave-active {
   -webkit-animation-name: antSlideRightOut;
@@ -2436,7 +2427,6 @@ samp {
           animation-name: antZoomIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-leave.zoom-leave-active {
   -webkit-animation-name: antZoomOut;
@@ -2480,7 +2470,6 @@ samp {
           animation-name: antZoomBigIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-big-leave.zoom-big-leave-active {
   -webkit-animation-name: antZoomBigOut;
@@ -2524,7 +2513,6 @@ samp {
           animation-name: antZoomBigIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-big-fast-leave.zoom-big-fast-leave-active {
   -webkit-animation-name: antZoomBigOut;
@@ -2568,7 +2556,6 @@ samp {
           animation-name: antZoomUpIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-up-leave.zoom-up-leave-active {
   -webkit-animation-name: antZoomUpOut;
@@ -2612,7 +2599,6 @@ samp {
           animation-name: antZoomDownIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-down-leave.zoom-down-leave-active {
   -webkit-animation-name: antZoomDownOut;
@@ -2656,7 +2642,6 @@ samp {
           animation-name: antZoomLeftIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-left-leave.zoom-left-leave-active {
   -webkit-animation-name: antZoomLeftOut;
@@ -2700,7 +2685,6 @@ samp {
           animation-name: antZoomRightIn;
   -webkit-animation-play-state: running;
           animation-play-state: running;
-  pointer-events: none;
 }
 .zoom-right-leave.zoom-right-leave-active {
   -webkit-animation-name: antZoomRightOut;
@@ -3055,8 +3039,8 @@ samp {
   overflow: hidden;
 }
 .ant-motion-collapse-active {
-  -webkit-transition: height .12s, opacity .12s !important;
-  transition: height .12s, opacity .12s !important;
+  -webkit-transition: height 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+  transition: height 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
 }
 .ant-affix {
   position: fixed;
@@ -4787,7 +4771,7 @@ textarea.ant-input {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  line-height: 1.5;
+  line-height: 1;
   padding: 0 15px;
   font-size: 12px;
   border-radius: 4px;
@@ -6304,6 +6288,7 @@ span.ant-radio + * {
 }
 .ant-card-contain-grid .ant-card-body {
   margin: -0.5px;
+  padding: 0;
 }
 .ant-card-grid {
   border-radius: 0;
@@ -6884,6 +6869,9 @@ span.ant-radio + * {
   top: 5px;
   width: 8px;
   height: 1px;
+}
+.ant-checkbox-indeterminate.ant-checkbox-disabled .ant-checkbox-inner:after {
+  border-color: rgba(0, 0, 0, 0.25);
 }
 .ant-checkbox-checked .ant-checkbox-inner:after {
   -webkit-transform: rotate(45deg) scale(1);
@@ -10003,6 +9991,10 @@ span.ant-radio + * {
 .ant-collapse > .ant-collapse-item {
   border-bottom: 1px solid #d9d9d9;
 }
+.ant-collapse > .ant-collapse-item:last-child,
+.ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header {
+  border-radius: 0 0 4px 4px;
+}
 .ant-collapse > .ant-collapse-item > .ant-collapse-header {
   line-height: 22px;
   padding: 8px 0 8px 32px;
@@ -10122,7 +10114,7 @@ span.ant-radio + * {
   color: rgba(0, 0, 0, 0.25);
   background-color: #f7f7f7;
 }
-.ant-collapse > .ant-collapse-item > .ant-collapse-header:active {
+.ant-collapse > .ant-collapse-item:not(.ant-collapse-item-disabled) > .ant-collapse-header:active {
   background-color: #eee;
 }
 .ant-calendar-picker-container {
@@ -10176,7 +10168,7 @@ span.ant-radio + * {
   right: 8px;
   top: 50%;
   margin-top: -7px;
-  line-height: 1em;
+  line-height: 14px;
   font-size: 12px;
   -webkit-transition: all .3s;
   transition: all .3s;
@@ -10210,7 +10202,6 @@ span.ant-radio + * {
   color: rgba(0, 0, 0, 0.43);
   display: inline-block;
   line-height: 1;
-  vertical-align: bottom;
 }
 .ant-calendar {
   position: relative;
@@ -10509,7 +10500,7 @@ span.ant-radio + * {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  line-height: 1.5;
+  line-height: 1;
   padding: 0 15px;
   height: 28px;
   -webkit-user-select: none;
@@ -11741,6 +11732,15 @@ textarea.ant-time-picker-input {
   padding: 1px 7px;
   height: 22px;
 }
+.ant-time-picker-input[disabled] {
+  background-color: #f7f7f7;
+  opacity: 1;
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
+}
+.ant-time-picker-input[disabled]:hover {
+  border-color: #e2e2e2;
+}
 .ant-time-picker-large .ant-time-picker-input {
   padding: 6px 7px;
   height: 32px;
@@ -12208,10 +12208,13 @@ input[type="checkbox"].disabled {
 form .has-feedback .ant-input {
   padding-right: 24px;
 }
+form .has-feedback > .ant-select .ant-select-arrow,
+form .has-feedback > .ant-select .ant-select-selection__clear,
 form .has-feedback :not(.ant-input-group-addon) > .ant-select .ant-select-arrow,
 form .has-feedback :not(.ant-input-group-addon) > .ant-select .ant-select-selection__clear {
   right: 28px;
 }
+form .has-feedback > .ant-select .ant-select-selection-selected-value,
 form .has-feedback :not(.ant-input-group-addon) > .ant-select .ant-select-selection-selected-value {
   padding-right: 42px;
 }
@@ -13171,6 +13174,8 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   color: rgba(0, 0, 0, 0.65);
   background: #fff;
   line-height: 46px;
+  -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-menu-hidden {
   display: none;
@@ -13189,8 +13194,16 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 .ant-menu-submenu,
 .ant-menu-submenu-title {
   cursor: pointer;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+}
+.ant-menu-submenu,
+.ant-menu-submenu-inline {
+  -webkit-transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.ant-menu-item,
+.ant-menu-submenu-title {
+  -webkit-transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-menu-item:active,
 .ant-menu-submenu-title:active {
@@ -13198,6 +13211,8 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 }
 .ant-menu-submenu .ant-menu-sub {
   cursor: initial;
+  -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-menu-item > a {
   display: block;
@@ -13282,8 +13297,11 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   -webkit-transform: scaleY(0.0001);
       -ms-transform: scaleY(0.0001);
           transform: scaleY(0.0001);
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  opacity: 0;
+  -webkit-transition: opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .ant-menu-vertical.ant-menu-sub {
   border-right: 0;
@@ -13308,47 +13326,61 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 }
 .ant-menu-inline {
   width: 100%;
-  -webkit-transition: width .24s;
-  transition: width .24s;
 }
 .ant-menu-inline .ant-menu-selected:after,
 .ant-menu-inline .ant-menu-item-selected:after {
+  -webkit-transition: opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 1;
   -webkit-transform: scaleY(1);
       -ms-transform: scaleY(1);
           transform: scaleY(1);
 }
+.ant-menu-vertical.ant-menu-inline-collapsed,
 .ant-menu-inline-collapsed {
   width: 64px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-item,
 .ant-menu-inline-collapsed > .ant-menu-item,
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title,
 .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-  text-align: center;
   left: 0;
-  padding: 0;
+  text-overflow: clip;
+  padding: 0 24px;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-item:after,
 .ant-menu-inline-collapsed > .ant-menu-item:after,
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title:after,
 .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title:after {
   display: none;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-item .anticon,
 .ant-menu-inline-collapsed > .ant-menu-item .anticon,
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon,
 .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
   font-size: 16px;
   line-height: 42px;
   margin: 0;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-item .anticon + span,
 .ant-menu-inline-collapsed > .ant-menu-item .anticon + span,
+.ant-menu-vertical.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon + span,
 .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon + span {
   max-width: 0;
-  visibility: hidden;
+  display: inline-block;
+  opacity: 0;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed-tooltip,
 .ant-menu-inline-collapsed-tooltip {
   pointer-events: none;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed-tooltip .anticon,
 .ant-menu-inline-collapsed-tooltip .anticon {
   display: none;
 }
+.ant-menu-vertical.ant-menu-inline-collapsed-tooltip a,
 .ant-menu-inline-collapsed-tooltip a {
   color: rgba(255, 255, 255, 0.91);
 }
@@ -13383,20 +13415,14 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 .ant-menu-submenu-title .anticon {
   min-width: 14px;
   margin-right: 8px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  vertical-align: middle;
+  -webkit-transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-menu-item .anticon + span,
 .ant-menu-submenu-title .anticon + span {
-  max-width: 100%;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  vertical-align: middle;
-  line-height: 1;
-  text-overflow: ellipsis;
+  -webkit-transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 1;
 }
 .ant-menu > .ant-menu-item-divider {
   height: 1px;
@@ -13413,6 +13439,12 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   background-color: #fff;
   border-radius: 4px;
 }
+.ant-menu-submenu > .ant-menu-submenu-title:after {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
   font-family: "anticon" !important;
   font-style: normal;
@@ -13421,10 +13453,6 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   text-transform: none;
   text-rendering: auto;
   position: absolute;
-  -webkit-transition: -webkit-transform .3s;
-  transition: -webkit-transform .3s;
-  transition: transform .3s;
-  transition: transform .3s, -webkit-transform .3s;
   content: "\E61D";
   right: 16px;
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
@@ -13440,10 +13468,6 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   text-transform: none;
   text-rendering: auto;
   position: absolute;
-  -webkit-transition: -webkit-transform .3s;
-  transition: -webkit-transform .3s;
-  transition: transform .3s;
-  transition: transform .3s, -webkit-transform .3s;
   content: "\E61D";
   right: 16px;
   top: 0;
@@ -15176,7 +15200,7 @@ textarea.ant-pagination-options-quick-jumper input {
   border-color: #88c7f4;
 }
 .ant-slider-disabled {
-  background-color: #e9e9e9 !important;
+  cursor: not-allowed;
 }
 .ant-slider-disabled .ant-slider-track {
   background-color: rgba(0, 0, 0, 0.25) !important;
@@ -16715,8 +16739,6 @@ tr.ant-table-expanded-row:hover {
       -ms-user-select: none;
           user-select: none;
   z-index: 2;
-  margin-right: -2px;
-  margin-top: 2px;
   width: 32px;
   height: 100%;
   line-height: 32px;
@@ -16742,10 +16764,17 @@ tr.ant-table-expanded-row:hover {
   vertical-align: baseline;
   position: absolute;
   top: 50%;
-  margin-top: -50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   text-align: center;
   text-transform: none;
-  font-family: sans-serif;
+}
+.ant-tabs-tab-prev-icon:before,
+.ant-tabs-tab-next-icon:before {
+  display: block;
+  font-family: "anticon" !important;
   display: inline-block;
   font-size: 12px;
   font-size: 10px \9;
@@ -16756,19 +16785,14 @@ tr.ant-table-expanded-row:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
   zoom: 1;
 }
-:root .ant-tabs-tab-prev-icon,
-:root .ant-tabs-tab-next-icon {
+:root .ant-tabs-tab-prev-icon:before,
+:root .ant-tabs-tab-next-icon:before {
   -webkit-filter: none;
           filter: none;
 }
-:root .ant-tabs-tab-prev-icon,
-:root .ant-tabs-tab-next-icon {
+:root .ant-tabs-tab-prev-icon:before,
+:root .ant-tabs-tab-next-icon:before {
   font-size: 12px;
-}
-.ant-tabs-tab-prev-icon:before,
-.ant-tabs-tab-next-icon:before {
-  display: block;
-  font-family: "anticon" !important;
 }
 .ant-tabs-tab-btn-disabled {
   cursor: not-allowed;
@@ -17577,6 +17601,9 @@ span.ant-transfer-list-search-action {
   width: 8px;
   height: 1px;
 }
+.ant-select-tree-checkbox-indeterminate.ant-select-tree-checkbox-disabled .ant-select-tree-checkbox-inner:after {
+  border-color: rgba(0, 0, 0, 0.25);
+}
 .ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner:after {
   -webkit-transform: rotate(45deg) scale(1);
       -ms-transform: rotate(45deg) scale(1);
@@ -17661,7 +17688,8 @@ span.ant-transfer-list-search-action {
 }
 .ant-select-tree {
   margin: 0;
-  padding: 8px;
+  padding: 0 4px;
+  margin-top: -4px;
   font-size: 12px;
 }
 .ant-select-tree li {
@@ -17688,6 +17716,7 @@ span.ant-transfer-list-search-action {
   color: rgba(0, 0, 0, 0.65);
   -webkit-transition: all .3s;
   transition: all .3s;
+  width: calc(100% - 24px);
 }
 .ant-select-tree li .ant-select-tree-node-content-wrapper:hover {
   background-color: #ecf6fd;
@@ -17698,12 +17727,15 @@ span.ant-transfer-list-search-action {
 .ant-select-tree li > span.ant-select-tree-checkbox {
   margin: 0 4px 0 0;
 }
+.ant-select-tree li > span.ant-select-tree-checkbox + .ant-select-tree-node-content-wrapper {
+  width: calc(100% - 46px);
+}
 .ant-select-tree li > span.ant-select-tree-switcher,
 .ant-select-tree li > span.ant-select-tree-iconEle {
   margin: 0;
   width: 24px;
   height: 24px;
-  line-height: 24px;
+  line-height: 22px;
   display: inline-block;
   vertical-align: middle;
   border: 0 none;
@@ -17973,6 +18005,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   width: 8px;
   height: 1px;
 }
+.ant-tree-checkbox-indeterminate.ant-tree-checkbox-disabled .ant-tree-checkbox-inner:after {
+  border-color: rgba(0, 0, 0, 0.25);
+}
 .ant-tree-checkbox-checked .ant-tree-checkbox-inner:after {
   -webkit-transform: rotate(45deg) scale(1);
       -ms-transform: rotate(45deg) scale(1);
@@ -18057,7 +18092,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .ant-tree {
   margin: 0;
-  padding: 5px;
+  padding: 0;
   font-size: 12px;
 }
 .ant-tree li {
@@ -18148,10 +18183,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-tree li span.ant-tree-switcher.ant-tree-switcher-noop {
   cursor: default;
 }
-.ant-tree li span.ant-tree-switcher.ant-tree-roots_open:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-center_open:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-bottom_open:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-noline_open:after {
+.ant-tree li span.ant-tree-switcher.ant-tree-switcher_open:after {
   font-size: 12px;
   font-size: 7px \9;
   -webkit-transform: scale(0.58333333) rotate(0deg);
@@ -18172,29 +18204,17 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   transition: transform .3s;
   transition: transform .3s, -webkit-transform .3s;
 }
-:root .ant-tree li span.ant-tree-switcher.ant-tree-roots_open:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-center_open:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-bottom_open:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-noline_open:after {
+:root .ant-tree li span.ant-tree-switcher.ant-tree-switcher_open:after {
   -webkit-filter: none;
           filter: none;
 }
-:root .ant-tree li span.ant-tree-switcher.ant-tree-roots_open:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-center_open:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-bottom_open:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-noline_open:after {
+:root .ant-tree li span.ant-tree-switcher.ant-tree-switcher_open:after {
   font-size: 12px;
 }
-.ant-tree li span.ant-tree-switcher.ant-tree-roots_close,
-.ant-tree li span.ant-tree-switcher.ant-tree-center_close,
-.ant-tree li span.ant-tree-switcher.ant-tree-bottom_close,
-.ant-tree li span.ant-tree-switcher.ant-tree-noline_close {
+.ant-tree li span.ant-tree-switcher.ant-tree-switcher_close {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
 }
-.ant-tree li span.ant-tree-switcher.ant-tree-roots_close:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-center_close:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-bottom_close:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-noline_close:after {
+.ant-tree li span.ant-tree-switcher.ant-tree-switcher_close:after {
   font-size: 12px;
   font-size: 7px \9;
   -webkit-transform: scale(0.58333333) rotate(0deg);
@@ -18215,23 +18235,14 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   transition: transform .3s;
   transition: transform .3s, -webkit-transform .3s;
 }
-:root .ant-tree li span.ant-tree-switcher.ant-tree-roots_close:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-center_close:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-bottom_close:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-noline_close:after {
+:root .ant-tree li span.ant-tree-switcher.ant-tree-switcher_close:after {
   -webkit-filter: none;
           filter: none;
 }
-:root .ant-tree li span.ant-tree-switcher.ant-tree-roots_close:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-center_close:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-bottom_close:after,
-:root .ant-tree li span.ant-tree-switcher.ant-tree-noline_close:after {
+:root .ant-tree li span.ant-tree-switcher.ant-tree-switcher_close:after {
   font-size: 12px;
 }
-.ant-tree li span.ant-tree-switcher.ant-tree-roots_close:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-center_close:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-bottom_close:after,
-.ant-tree li span.ant-tree-switcher.ant-tree-noline_close:after {
+.ant-tree li span.ant-tree-switcher.ant-tree-switcher_close:after {
   -webkit-transform: rotate(270deg) scale(0.59);
       -ms-transform: rotate(270deg) scale(0.59);
           transform: rotate(270deg) scale(0.59);
@@ -18306,16 +18317,10 @@ li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper:hover {
 :root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher-noop:after {
   font-size: 12px;
 }
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_open,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_open,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_open,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_open {
+.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_open {
   color: rgba(0, 0, 0, 0.43);
 }
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_open:after,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_open:after,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_open:after,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_open:after {
+.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_open:after {
   font-size: 12px;
   font-size: 12px \9;
   -webkit-transform: scale(1) rotate(0deg);
@@ -18337,29 +18342,17 @@ li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper:hover {
   transition: transform .3s;
   transition: transform .3s, -webkit-transform .3s;
 }
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_open:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_open:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_open:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_open:after {
+:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_open:after {
   -webkit-filter: none;
           filter: none;
 }
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_open:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_open:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_open:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_open:after {
+:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_open:after {
   font-size: 12px;
 }
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_close,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_close,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_close,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_close {
+.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_close {
   color: rgba(0, 0, 0, 0.43);
 }
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_close:after,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_close:after,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_close:after,
-.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_close:after {
+.ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_close:after {
   font-size: 12px;
   font-size: 12px \9;
   -webkit-transform: scale(1) rotate(0deg);
@@ -18381,17 +18374,11 @@ li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper:hover {
   transition: transform .3s;
   transition: transform .3s, -webkit-transform .3s;
 }
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_close:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_close:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_close:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_close:after {
+:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_close:after {
   -webkit-filter: none;
           filter: none;
 }
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-roots_close:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-center_close:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-bottom_close:after,
-:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-noline_close:after {
+:root .ant-tree.ant-tree-show-line li span.ant-tree-switcher.ant-tree-switcher_close:after {
   font-size: 12px;
 }
 .ant-tree.ant-tree-show-line li:not(:last-child):before {
