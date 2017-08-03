@@ -1,6 +1,6 @@
 import React, { Component, Children } from 'react';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import addEventListener, { RcUtilEventHandler } from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
@@ -13,15 +13,15 @@ export interface CardProps {
   style?: React.CSSProperties;
   loading?: boolean;
   noHovering?: boolean;
-  children?: any;
+  children?: React.ReactChild;
   id?: string;
   className?: string;
 }
 
-export default class Card extends Component<CardProps, any> {
+export default class Card extends Component<CardProps> {
   static Grid: typeof Grid = Grid;
-  container: any;
-  resizeEvent: any;
+  container: HTMLDivElement;
+  resizeEvent: RcUtilEventHandler;
   updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
@@ -34,9 +34,13 @@ export default class Card extends Component<CardProps, any> {
     if (this.resizeEvent) {
       this.resizeEvent.remove();
     }
+    (this.updateWiderPadding as any).cancel();
   }
   @throttleByAnimationFrameDecorator()
   updateWiderPadding() {
+    if (!this.container) {
+      return;
+    }
     // 936 is a magic card width pixer number indicated by designer
     const WIDTH_BOUDARY_PX = 936;
     if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {
@@ -50,12 +54,12 @@ export default class Card extends Component<CardProps, any> {
       });
     }
   }
-  saveRef = (node) => {
+  saveRef = (node: HTMLDivElement) => {
     this.container = node;
   }
   isContainGrid() {
     let containGrid;
-    Children.forEach(this.props.children, (element: any) => {
+    Children.forEach(this.props.children, (element: JSX.Element) => {
       if (element && element.type && element.type === Grid) {
         containGrid = true;
       }

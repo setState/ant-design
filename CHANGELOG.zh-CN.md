@@ -17,6 +17,41 @@ timeline: true
 
 ---
 
+## 2.12.3
+
+`2017-07-30`
+
+- 修复 Checkbox 半选状态禁用时的样式。
+- 修复 Card 会出现 `this.container` 不存在的问题。[#6976](https://github.com/ant-design/ant-design/pull/6976) [@neekey](https://github.com/neekey)
+- 修复基础字体改为 `14px` 时 Button 的对齐问题。[#7001](https://github.com/ant-design/ant-design/issues/7001)
+- 修复 Grid Card 的内边距。
+- Dropdown
+  - 修复菜单可能被多次点击的问题。[#6314](https://github.com/ant-design/ant-design/issues/6314)
+  - 修复在菜单显示前 hover 会导致菜单消失的问题。[#6949](https://github.com/ant-design/ant-design/issues/6949)
+  - 修复菜单的错位问题。
+- 改进了 Menu 的动画效果。[#6955](https://github.com/ant-design/ant-design/pull/6955)
+- 调整了 DatePicker 中图标的位置。
+- 新增 less 变量。[e1a46cc](https://github.com/ant-design/ant-design/commit/e1a46cc419fb4975ae1782ba793b378c8e584057)
+- 修复了一些 TypeScript 定义问题。
+
+## 2.12.2
+
+`2017-07-22`
+
+- 将 message 默认出现的时长从 1.5s 调整为 3s。
+- 重构了 Anchor，修复未滚动时链接没有高亮的问题。[#6473](https://github.com/ant-design/ant-design/issues/6473)
+- 修复 Input.TextArea 的失效样式。[#6858](https://github.com/ant-design/ant-design/pull/6858) [@lyz810](https://github.com/lyz810)
+- 修复 TimePicker 的失效样式。[#6918](https://github.com/ant-design/ant-design/issues/6918)
+- 修复 2.12.1 里再次出现的表单反馈图标和下拉图标重叠的问题。[#4431](https://github.com/ant-design/ant-design/issues/4431)
+- 修复垂直 Tabs 的切换箭头样式。[255eac9](https://github.com/ant-design/ant-design/commit/255eac907949ded5b79f216a29831dcf4afa9362)
+- 调整波兰语的文案。[#6869](https://github.com/ant-design/ant-design/pull/6869) [#6870](https://github.com/ant-design/ant-design/pull/6870) [#6871](https://github.com/ant-design/ant-design/pull/6871) [@imosapatryk](https://github.com/imosapatryk)
+- 修复源码中含有 http 的链接而被集团安全扫描工具报错的问题。[#6893](https://github.com/ant-design/ant-design/issues/6893)
+- 调整 Menu 的图标和文字对齐问题。
+- 修复一个 Tooltip 的 `overlay is marked as required` 的警告问题。[#6897](https://github.com/ant-design/ant-design/issues/6897)
+- 修复 Slider 在有色背景下的失效样式。[#6665](https://github.com/ant-design/ant-design/issues/6665)
+- 调整了 TreeSelect 选项的点击范围。
+- 修复了一些 TypeScript 定义问题。
+
 ## 2.12.1
 
 `2017-07-17`
@@ -67,7 +102,7 @@ timeline: true
   - 优化了样式。[#6665](https://github.com/ant-design/ant-design/issues/6665)
   - rc-slider 升级至 8.2.0，新增 `dotStyle`，`activeDotStyle` 属性。[rc-slider/pull/292](https://github.com/react-component/slider/pull/292)
 - 修复 Spin 遮罩层被穿透的样式问题。[#6759](https://github.com/ant-design/ant-design/issues/6759)
-- 修复嵌套 Steps 的样式问题。[#6754](https://github.com/ant-design/ant-design/issues/6754) 
+- 修复嵌套 Steps 的样式问题。[#6754](https://github.com/ant-design/ant-design/issues/6754)
 - Table
   - 修复了固定头部 Table 中展开区域的背景色样式问题。[#6657](https://github.com/ant-design/ant-design/issues/6657)
   - 补充了 Table 文档中缺失的 `onRowDoubleClick` 属性。[pull/6667](https://github.com/ant-design/ant-design/pull/6667) [@yurtaev](https://github.com/yurtaev)
