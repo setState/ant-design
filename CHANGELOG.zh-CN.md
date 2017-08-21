@@ -17,6 +17,87 @@ timeline: true
 
 ---
 
+## 2.12.7
+
+`2017-08-21`
+
+- Angular@4.0 版 antd [ng-zorro-antd](https://ng.ant.design) 开源。
+- 优化 Affix 支持的场景。[01d4acb](https://github.com/ant-design/ant-design/commit/01d4acb7a9b030be3552b4ca19b4e899dc2bb7c7)
+- 修复 AutoComplete children ref 失效的问题。[#6814](https://github.com/ant-design/ant-design/issues/6814)
+- Button
+  - 优化自动在中文字符中间插入空格的逻辑。[59b11f3](https://github.com/ant-design/ant-design/commit/59b11f3b480d43cb32fb24e351cb4c4dd569243c)
+  - 修复点击事件的 `event.target` 不是 button 的问题。[#7034](https://github.com/ant-design/ant-design/issues/7034)
+- 修复 Carousel 的 `innerSlider` 引用问题。[#7191](https://github.com/ant-design/ant-design/issues/7191)
+- 修复 DatePicker 中的按钮样式。[ad6dbcb](https://github.com/ant-design/ant-design/commit/ad6dbcb9c6dac407a38f2391d3e5fa1d8ae1cfab)
+- 修复 Form TypeScript definition。[#7245](https://github.com/ant-design/ant-design/pull/7245)
+- 修复 InputNumber 的 TypeScript definition。[#7257](https://github.com/ant-design/ant-design/issues/7257)
+- 修复 `Layout.Sider` 在 IE11 下没有折叠动画的问题。[#6349](https://github.com/ant-design/ant-design/issues/6349)
+- 修复 LocaleProvider 西班牙语的拼写问题。[#7234](https://github.com/ant-design/ant-design/pull/7234) [@ramsesmoreno](https://github.com/ramsesmoreno)
+- 修复 notification 默认 placement 会被覆盖的问题。[#5895](https://github.com/ant-design/ant-design/issues/5895)
+- 修复 Pagination 按钮的 disabled 样式。[cf3c0aa](https://github.com/ant-design/ant-design/commit/cf3c0aac43e2825bfd85ca3b8abbf4742e504260)
+- 修复 Select exports 导致的 webpack 构建错误的问题。[#7222](https://github.com/ant-design/ant-design/issues/7222)
+- 修复 Tabs 在父容器宽度动态变化时切换按钮没有出现的问题。[#7231](https://github.com/ant-design/ant-design/issues/7231) [#7210](https://github.com/ant-design/ant-design/issues/7210)
+- 修复 Timeline 在只有一个 `Timeline.Item` 时的样式问题。[#7214](https://github.com/ant-design/ant-design/issues/7214)
+- 修复 Upload 在 uid 为 0 时的错误行为。[#7269](https://github.com/ant-design/ant-design/issues/7269)
+
+## 2.12.6
+
+`2017-08-11`
+
+- 修复了在 IE9/10/11 下 Collapse 的箭头位置不正确的问题。[af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
+- 修复了 Table 为空表格时滚动条展示位置不正确的问题。[#7142](https://github.com/ant-design/ant-design/issues/7142)
+- 修复了 RangePicker Input 的高度。[47c5de2](https://github.com/ant-design/ant-design/commit/47c5de29f370a77fc19a6a8eda8ac57476f312a6)
+- Card
+  - 优化了 Card.Grid 边框覆盖的样式。[807b573](https://github.com/ant-design/ant-design/commit/807b573bff43bc71115afeb086f565561807a32d)
+  - 修复了对应 `no-animation` 类型的 className。[#7185](https://github.com/ant-design/ant-design/issues/7185)
+- 修复了 Input Safari 下文本对齐的问题。[#7135](https://github.com/ant-design/ant-design/issues/7135)
+- Layout
+  - 修复了组件的拉伸展示问题。[500b222](https://github.com/ant-design/ant-design/commit/500b2225567f03397d9faec5f4e60a8f35fc4d28)
+  - 修复了折叠箭头的位置。[f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
+- 修复了 Upload 的 response 不是 string 的情况下没有处理错误提示信息的问题。[#6818](https://github.com/ant-design/ant-design/issues/6818)
+- Form
+  - 补充了文档中缺少的 `validateFirst` 属性描述。[#6959](https://github.com/ant-design/ant-design/issues/6959)
+  - 修复了 `wrappedComponentRef`。[#6545](https://github.com/ant-design/ant-design/issues/6545)
+  - 补充了 FormCreateOption 的 `generic type`。[#7119](https://github.com/ant-design/ant-design/pull/7119) [@djyde](https://github.com/djyde)
+  - 修改了 `square` 的字体大小为 `@form-feedback-icon-size`。[9bcde59](https://github.com/ant-design/ant-design/commit/9bcde590015855a12fdee851cf4e4836d0195cd7)
+
+## 2.12.5
+
+`2017-08-07`
+
+- 修复 ES 模式下报 `SelectPropTypes not found` 的问题。[#7123](https://github.com/ant-design/ant-design/issues/7123)
+- 修复 Row 在 flex 模式下元素不换行的问题。[4f73a23](https://github.com/ant-design/ant-design/commit/4f73a23a103733a3c148bb04013493a042f90a8f)
+- 修复 InputNumber 和 RangePicker 的样式问题。[#7117](https://github.com/ant-design/ant-design/issues/7117) [#7126](https://github.com/ant-design/ant-design/issues/7126)
+
+## 2.12.4
+
+`2017-08-06`
+
+- 修复了 Affix 在 IE 下调用对象无效的报错。[#7060](https://github.com/ant-design/ant-design/issues/7060)
+- 对 Badge 默认 title 的出现条件进行了优化。[#7024](https://github.com/ant-design/ant-design/issues/7024)
+- Card
+  - 修改了文档中 `onHovering` 属性的错误描述。[#7078](https://github.com/ant-design/ant-design/issues/7078)
+  - 修复了 `children` 的类型定义。[pull/7030](https://github.com/ant-design/ant-design/pull/7030) [@djyde](https://github.com/djyde)
+- 修复了 Collapse `onChange` 属性参数的类型定义。[pull/7084](https://github.com/ant-design/ant-design/pull/7084) [@davidctj](https://github.com/davidctj)
+- Dropdown
+  - 修复了 Dropdown.Button 的对齐问题。[#7070](https://github.com/ant-design/ant-design/issues/7070)
+  - 补充了文档中缺失的 `size` 属性。[pull/7071](https://github.com/ant-design/ant-design/pull/7071) [@hansnow](https://github.com/hansnow)
+- Input
+  - 修复了 outline 被 addon 遮盖的问题。[commit/0f63c7](https://github.com/ant-design/ant-design/commit/0f63c7186ef3a5db36c01df9d9ebde9d5b3871ef)
+  - 修复了 InputGroup 的示例问题。[pull/7089](https://github.com/ant-design/ant-design/pull/7089) [@jdz321](https://github.com/jdz321)
+- 修复了 InputNumber 格式化示例的报错问题。[pull/7098](https://github.com/ant-design/ant-design/pull/7098) [@tim-soft](https://github.com/tim-soft)
+- Menu
+  - 修复了 Menu 折叠并缩起时的不正常表现。[#7048](https://github.com/ant-design/ant-design/issues/7048) [#7063](https://github.com/ant-design/ant-design/issues/7063)
+  - 修复了子菜单被选中时 SubMenu 没有高亮的问题。[pull/7042](https://github.com/ant-design/ant-design/pull/7042) [@atomgao](https://github.com/atomgao)
+- 修复了 notification `type` 的类型定义。[#7073](https://github.com/ant-design/ant-design/issues/7073) [@marswong](https://github.com/marswong)
+- 修复了 Pagination `showTotal` 的类型定义。[#7054](https://github.com/ant-design/ant-design/issues/7054)
+- 修复了 RangePicker 在清空后的报错问题。[#7077](https://github.com/ant-design/ant-design/issues/7077)
+- 补充了 Select 缺失的 `onFocus` `onBlur` 类型定义。[pull/7082](https://github.com/ant-design/ant-design/pull/7082) [@troynt](https://github.com/troynt)
+- 修复了 Tabs 垂直模式下 `tabBarExtraContent` 样式错乱的问题。rc-tabs 升级到 9.0.2，对 TabBar 的 `extraContent` 的结构进行了重构。[#6578](https://github.com/ant-design/ant-design/issues/6578)
+- 修复了 TreeSelect 图标不能正常展示的问题。[#7020](https://github.com/ant-design/ant-design/issues/7020)
+- 修复了 `error TS7016: Could not find a declaration file for module 'rc-util/lib/Dom/addEventListener'` 的报错。[#7033](https://github.com/ant-design/ant-design/issues/7033) [@djyde](https://github.com/djyde)
+- 完成了『模式-列表』的文档翻译。[list](https://ant.design/docs/pattern/list) [@zachguo](https://github.com/zachguo)
+
 ## 2.12.3
 
 `2017-07-30`
