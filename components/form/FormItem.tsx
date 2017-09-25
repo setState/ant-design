@@ -1,6 +1,8 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
@@ -124,11 +126,15 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
-    return help ? (
-      <div className={`${prefixCls}-explain`} key="help">
-        {help}
-      </div>
-    ) : null;
+    const children = help ? (
+        <div className={`${prefixCls}-explain`} key="help">
+          {help}
+        </div>
+      ) : null;
+    return (
+      <Animate transitionName="show-help" component="" transitionAppear key="help">
+        {children}
+      </Animate>);
   }
 
   renderExtra() {
@@ -168,7 +174,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (validateStatus) {
       classes = classNames(
         {
-          'has-feedback': props.hasFeedback,
+          'has-feedback': props.hasFeedback || validateStatus === 'validating',
           'has-success': validateStatus === 'success',
           'has-warning': validateStatus === 'warning',
           'has-error': validateStatus === 'error',
@@ -212,6 +218,23 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return false;
   }
 
+  // Resolve duplicated ids bug between different forms
+  // https://github.com/ant-design/ant-design/issues/7351
+  onLabelClick = (e) => {
+    const id = this.props.id || this.getId();
+    if (!id) {
+      return;
+    }
+    const controls = document.querySelectorAll(`[id="${id}"]`);
+    if (controls.length !== 1) {
+      e.preventDefault();
+      const control = findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
+      if (control && control.focus) {
+        control.focus();
+      }
+    }
+  }
+
   renderLabel() {
     const { prefixCls, label, labelCol, colon, id } = this.props;
     const context = this.context;
@@ -239,6 +262,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           htmlFor={id || this.getId()}
           className={labelClassName}
           title={typeof label === 'string' ? label : ''}
+          onClick={this.onLabelClick}
         >
           {labelChildren}
         </label>

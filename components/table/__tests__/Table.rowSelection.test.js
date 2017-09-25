@@ -227,11 +227,55 @@ describe('Table.rowSelection', () => {
     const wrapper = mount(createTable({ rowSelection }));
 
     const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(4);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(2).simulate('click');
     expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(3).simulate('click');
+    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+  });
+
+  it('could hide default selection options', () => {
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+      }, {
+        key: 'even',
+        text: '偶数项',
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
+  });
+
+  it('handle custom selection onSelect correctly when hide default selection options', () => {
+    const handleSelectOdd = jest.fn();
+    const handleSelectEven = jest.fn();
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+        onSelect: handleSelectOdd,
+      }, {
+        key: 'even',
+        text: '偶数项',
+        onSelect: handleSelectEven,
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
+
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(0).simulate('click');
+    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(1).simulate('click');
     expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
   });
 

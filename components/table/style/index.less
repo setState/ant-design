@@ -202,7 +202,7 @@
   }
 
   &-middle {
-    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column),
+    .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
       padding: 10px 8px;
     }
@@ -254,7 +254,7 @@
 
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
-    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column) {
+    .@{table-prefix-cls}-thead > tr > th {
       padding: 10px 8px;
     }
 
@@ -265,9 +265,6 @@
 
     .@{table-prefix-cls}-header {
       background: @component-background;
-      table {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
-      }
     }
 
     .@{table-prefix-cls}-placeholder,
@@ -435,6 +432,7 @@
     text-align: center;
     font-size: @font-size-base;
     color: @text-color-secondary;
+    z-index: 1;
     .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
@@ -617,18 +615,6 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
-  }
-
-  /* fix firefox scrollbar bug */
-  &-fixed-header&-empty &-scroll &-body {
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-  }
-
-  // Ignore the scroll.x width
-  // https://github.com/ant-design/ant-design/issues/7142
-  &-empty &-scroll &-body &-fixed {
-    width: auto !important;
   }
 
   &-fixed-left,

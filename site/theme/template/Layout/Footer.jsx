@@ -1,9 +1,20 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, Icon } from 'antd';
-import { isLocalStorageNameSupported } from '../utils';
+import { Modal, Icon, message } from 'antd';
+import { isLocalStorageNameSupported, loadScript } from '../utils';
+import ColorPicker from '../Color/ColorPicker';
 
 class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.lessLoaded = false;
+
+    this.state = {
+      color: '#108ee9',
+    };
+  }
+
   componentDidMount() {
     // for some iOS
     // http://stackoverflow.com/a/14555361
@@ -18,6 +29,32 @@ class Footer extends React.Component {
         Date.now() < new Date('2016/10/14').getTime()
     ) {
       this.infoNewVersion();
+    }
+  }
+
+  handleColorChange = (color) => {
+    const changeColor = () => {
+      const { messages } = this.props.intl;
+      window.less.modifyVars({
+        '@primary-color': color,
+      }).then(() => {
+        message.success(messages['app.footer.primary-color-changed']);
+        this.setState({ color });
+      });
+    };
+
+    const lessUrl = 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js';
+
+    if (this.lessLoaded) {
+      changeColor();
+    } else {
+      window.less = {
+        async: true,
+      };
+      loadScript(lessUrl).then(() => {
+        this.lessLoaded = true;
+        changeColor();
+      });
     }
   }
 
@@ -50,35 +87,47 @@ class Footer extends React.Component {
       <footer id="footer">
         <ul>
           <li>
-            <h2><Icon type="github" /> GitHub</h2>
+            <h2><Icon type="github" /> Ant Design</h2>
             <div>
               <a target="_blank " href="https://github.com/ant-design/ant-design">
-                <FormattedMessage id="app.footer.repo" />
+                GitHub
               </a>
             </div>
-            <div>
-              <a target="_blank " href="https://ant.design/docs/react/customize-theme">
-                <FormattedMessage id="app.footer.customize-theme" />
-              </a>
-            </div>
-            <div>
-              <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
-                <FormattedMessage id="app.footer.awesome" />
-              </a>
-            </div>
-          </li>
-          <li>
-            <h2><Icon type="link" /> <FormattedMessage id="app.footer.links" /></h2>
             <div>
               <a href="http://mobile.ant.design">Ant Design Mobile</a>
-              <span> - </span>
-              <FormattedMessage id="app.footer.mobile" />
             </div>
             <div>
               <a href="http://ng.ant.design">NG-ZORRO</a>
               <span> - </span>
               Ant Design of Angular
             </div>
+            <div>
+              <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
+                <FormattedMessage id="app.footer.awesome" />
+              </a>
+            </div>
+            <div style={{ marginTop: 12 }}>
+              <ColorPicker
+                type="sketch"
+                small
+                color={this.state.color}
+                position="top"
+                presetColors={[
+                  '#f04134',
+                  '#00a854',
+                  '#108ee9',
+                  '#f5317f',
+                  '#f56a00',
+                  '#7265e6',
+                  '#ffbf00',
+                  '#00a2ae',
+                ]}
+                onChangeComplete={this.handleColorChange}
+              />
+            </div>
+          </li>
+          <li>
+            <h2><Icon type="link" /> <FormattedMessage id="app.footer.resources" /></h2>
             <div>
               <a href="http://scaffold.ant.design">Scaffolds</a>
               <span> - </span>

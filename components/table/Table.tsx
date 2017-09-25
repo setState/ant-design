@@ -56,6 +56,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
   onSelectInvert?: (selectedRows: Object[]) => any;
   selections?: SelectionDecorator[] | boolean;
+  hideDefaultSelections?: boolean;
 }
 
 export interface TableProps<T> {
@@ -85,7 +86,7 @@ export interface TableProps<T> {
   showHeader?: boolean;
   footer?: (currentPageData: Object[]) => React.ReactNode;
   title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number, y?: boolean | number};
+  scroll?: { x?: boolean | number | string, y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
@@ -551,7 +552,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       selectionDirty: true,
     });
     // when select custom selection, callback selections[n].onSelect
-    if (index > 1 && typeof onSelectFunc === 'function') {
+    const { rowSelection } = this.props;
+    let customSelectionStartIndex = 2;
+    if (rowSelection && rowSelection.hideDefaultSelections) {
+      customSelectionStartIndex = 0;
+    }
+    if (index >= customSelectionStartIndex && typeof onSelectFunc === 'function') {
       return onSelectFunc(changeableRowKeys);
     }
     this.setSelectedRowKeys(selectedRowKeys, {
@@ -669,6 +675,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             prefixCls={prefixCls}
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
+            hideDefaultSelections={rowSelection.hideDefaultSelections}
             getPopupContainer={this.getPopupContainer}
           />
         );

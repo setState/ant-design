@@ -17,6 +17,91 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.3
+
+`2017-09-22`
+
+- Fix Affix scrolling bug when document's height minus viewport's height is smaller than the height of children of Affix. [#2349](https://github.com/ant-design/ant-design/issues/2349)
+- Fix broken style of header of Card when `Card[title]` is void and `Card[extra]` is set. [f46112d#commitcomment-24480417](https://github.com/ant-design/ant-design/commit/f46112d38561c89780eb44ecbba82347d2b912da#commitcomment-24480417)
+- Fix TypeScript definition of `Checkbox[children]`. [#7650](https://github.com/ant-design/ant-design/issues/7650) [@liaokaien](https://github.com/liaokaien)
+- Fix error when set nested name in `getFieldDecorator` and then click the label of `Form.Item`. [#7693](https://github.com/ant-design/ant-design/issues/7693)
+- Input
+  - Fix broken style of `Input.Group[compat]` when it has `Select` as its children. [#7662](https://github.com/ant-design/ant-design/issues/7662)
+  - Fix TypeScript definition of `Input[autoComplete]`. [#7699](https://github.com/ant-design/ant-design/pull/7699) [@delesseps](https://github.com/delesseps)
+- LocaleProvider
+  - Support Portuguese. [#7449](https://github.com/ant-design/ant-design/pull/7449) [@taviroquai](https://github.com/taviroquai)
+  - Fix missing translations in Dutch locale. [#7694](https://github.com/ant-design/ant-design/pull/7694) [@kstiopin](https://github.com/kstiopin)
+- Table
+  - Fix height of table header when `rowSelection` is set. [#7663](https://github.com/ant-design/ant-design/issues/7663)
+  - Fix bug that click on first two options will not trigger event when `rowSelection.hideDefaultselections` is set. [#7626](https://github.com/ant-design/ant-design/issues/7626) [@infeng](https://github.com/infeng)
+  - Fix TypeScript definition of `Table[scroll]`. [#7640](https://github.com/ant-design/ant-design/pull/7640) [@BlackGanglion](https://github.com/BlackGanglion)
+
+
+## 2.13.2
+
+`2017-09-15`
+
+- 🐞 Fix title and extra content position of narrow Card. [#7604](https://github.com/ant-design/ant-design/issues/7604)
+- 🐞 Fix inlineCollapsed style of MenuItemGroup. [#7109](https://github.com/ant-design/ant-design/issues/7109)
+- 🐞 Revert [#7142](https://github.com/ant-design/ant-design/issues/7142) to fix empty data style of Table.
+- 🐞 Fix Form `getFieldDecoratorOptions` missing types of `normalize` and `validateFirst`. [#7552](https://github.com/ant-design/ant-design/issues/7552) [@meteor91](https://github.com/meteor91) [@mitchelldemler](https://github.com/mitchelldemler)
+- 🐞 Fix Modal `zIndex` type. [#7624](https://github.com/ant-design/ant-design/issues/7624)
+- 🌟 Improve tree node loading icon position. [#7584](https://github.com/ant-design/ant-design/issues/7584)
+- 🌟 Update a lot of components's English doc. [@khalibloo](https://github.com/khalibloo)
+
+## 2.13.1
+
+`2017-09-10`
+
+- 🐞 Fix Card.Grid broken style. [commit/c7d6ce](https://github.com/ant-design/ant-design/commit/c7d6ce5d3f7bfae1f2252d702fb1bdf04fdc80cb)
+- 🐞 Fix Cascader overlaping text. [#7475](https://github.com/ant-design/ant-design/issues/7475)
+- 🐞 Fix simple mode Pagination prev and next button missing. [#7500](https://github.com/ant-design/ant-design/issues/7500)
+- 🐞 Fix Slider typings. [#7532](https://github.com/ant-design/ant-design/issues/7532)
+- Table
+  - 🐞 Fix empty data scroll style. [#7457](https://github.com/ant-design/ant-design/issues/7457) [#7468](https://github.com/ant-design/ant-design/issues/7468) [#7470](https://github.com/ant-design/ant-design/issues/7470) [#7509](https://github.com/ant-design/ant-design/issues/7509)
+  - 🌟 Make supplement for API docs. [#7525](https://github.com/ant-design/ant-design/pull/7525) [@hansnow](https://github.com/hansnow)
+- 🐞 Fix Upload typings. [#7507](https://github.com/ant-design/ant-design/pull/7507) [@WingGao](https://github.com/WingGao)
+- 🐞 Fix inlineCollapsed Menu when Submenu is opened. [#7514](https://github.com/ant-design/ant-design/issues/7514)
+- 🐞 Fix validateStatus styles of some Form Controls. [#7498](https://github.com/ant-design/ant-design/issues/7498)
+- 🐞 Fix @link-hover-decoration not working. [#7531](https://github.com/ant-design/ant-design/issues/7531)
+- 🌟 Optimize the English documentation of some components. [@khalibloo](https://github.com/khalibloo)
+
+## 2.13.0
+
+`2017-09-01`
+
+- 🌟 Add `okType` and `cancelType` prop to Popconfirm and Modal and it's related methods. [#6848](https://github.com/ant-design/ant-design/pull/6848) [@yociduo](https://github.com/yociduo)
+- 🌟 Add `zIndex` prop to Modal and it's relatedt methos. [#6880](https://github.com/ant-design/ant-design/pull/6880) [@Alex1990](https://github.com/Alex1990)
+- 🌟 Add `name` prop to RadioGroup. [#7009](https://github.com/ant-design/ant-design/pull/7009) [@djyde](https://github.com/djyde)
+- 🌟 Add `hideDefaultSelections` props to Table. [#7295](https://github.com/ant-design/ant-design/issues/7295)
+- Dropdown
+  - 🌟 Add `disabled` prop. [#7102](https://github.com/ant-design/ant-design/pull/7102) [@yociduo](https://github.com/yociduo)
+  - 🌟 Menu can not be selected defaultly now.
+- 🌟 Add a third parameter `originalElement` to Pagination's `itemRender`.
+- 🌟 Add `backfill` prop to AutoComplete, items are selected by keyborad will be backfilled to the search input. [#5764](https://github.com/ant-design/ant-design/issues/5764)
+- 🌟 Add `firstActiveValue` prop to Select to allow specify active item when open select first time. [#6318](https://github.com/ant-design/ant-design/issues/6318) [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
+- LocaleProvider
+  - 🌟 Add Persian. [#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
+  - 🌟 Add Greek. [#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)
+  - 🌟 Add Norwegian. [#7122](https://github.com/ant-design/ant-design/pull/7122) [@santi](https://github.com/santi)
+  - 🌟 Add Serbian. [#7201](https://github.com/ant-design/ant-design/pull/7201) [@paunovic-stefan](https://github.com/paunovic-stefan)
+- 🐞 Fix Menu's title can not be hidden when collapsing  Sider. [#7409](https://github.com/ant-design/ant-design/issues/7409)
+- 🐞 Fix some TypeScript type definitions [#7355](https://github.com/ant-design/ant-design/pull/7355) [#7378](https://github.com/ant-design/ant-design/pull/7378) [#7384](https://github.com/ant-design/ant-design/pull/7384)
+- 🐞 Fix some components can not use conditional rendering. [#6530](https://github.com/ant-design/ant-design/issues/6530)
+- Website
+  - 🌟 Add a shortcut `s` to focus the search input.
+  - 🌟 Add a color picker to the footer to change primary color and preview lively.
+
+## 2.12.8
+
+`2017-08-27`
+
+- 📖 Rewrite the [Use in create-react-app](/docs/react/use-with-create-react-app) documentation without ejecting.  [#7276](https://github.com/ant-design/ant-design/pull/7276)
+- 🌟 Better empty data style for fixed-columns Table. [#7298](https://github.com/ant-design/ant-design/issues/7298)
+- 🐞 Fix `disabled` logic of CheckboxGroup and Checkbox. [#7266](https://github.com/ant-design/ant-design/issues/7266) [@dilidili](https://github.com/dilidili)
+- 🐞 Fix errors of rendering Spin and Carousel in react-snapshot or other jsdom environment. [#3308](https://github.com/ant-design/ant-design/issues/3308) [#7318](https://github.com/ant-design/ant-design/issues/7318)
+- 🐞 Fix some details of Select, Tooltip and Menu.
+
 ## 2.12.7
 
 `2017-08-21`
@@ -181,7 +266,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Fix Select overflow issue. [#6621](https://github.com/ant-design/ant-design/issues/6621)
 - Slider
   - Improve styles. [#6665](https://github.com/ant-design/ant-design/issues/6665)
-  - Upgrade rc-slider to 8.2.0, add `dotStyle`，`activeDotStyle` props. [rc-slider/pull/292](https://github.com/react-component/slider/pull/292)
+  - Upgrade rc-slider to 8.2.0, add `dotStyle`, `activeDotStyle` props. [rc-slider/pull/292](https://github.com/react-component/slider/pull/292)
 - Fix Spin z-index issue. [#6759](https://github.com/ant-design/ant-design/issues/6759)
 - Fix nested Steps style issue. [#6754](https://github.com/ant-design/ant-design/issues/6754)
 - Table
@@ -190,7 +275,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Make supplement for `loading` docs. [pull/6763](https://github.com/ant-design/ant-design/pull/6763) [@hansnow](https://github.com/hansnow)
   - Upgrade rc-table to 5.4.0, support `onRowMouseEnter` and `onRowMouseLeave`. [rc-table/0db582](https://github.com/react-component/table/commit/0db582a75dfa119715eb4db8a59eacfca744c5a0)
 - Improve TimePicker format support. [950c32](https://github.com/ant-design/ant-design/commit/950c321b25091ef31b130b83674478974590d7f3)
-- Make style improvement or tweaking for many components, includes [Checkbox](https://ant.design/components/checkbox/)，[Radio](https://ant.design/components/radio/)，[Tabs](https://ant.design/components/tabs/)，[Card](https://ant.design/components/card/) and etc.
+- Make style improvement or tweaking for many components, includes [Checkbox](https://ant.design/components/checkbox/), [Radio](https://ant.design/components/radio/), [Tabs](https://ant.design/components/tabs/), [Card](https://ant.design/components/card/) and etc.
 - Now you can open demo in codepen. [#5140](https://github.com/ant-design/ant-design/issues/5140)
 
 ## 2.11.2
@@ -706,7 +791,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Fixed Badge misplace issue when browser zoom above 100%. [#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
 * Fixed a mis-align issue of fixed header Table. [#4750](https://github.com/ant-design/ant-design/issues/4750)
 * Fixed Table scrolling lag issue in IE. [#4522](https://github.com/ant-design/ant-design/issues/4522)
-* Add icon aliases: `addfile` => `file-add`，`addfolder` => `folder-open`, and the old type names are still working. [#4758](https://github.com/ant-design/ant-design/issues/4758)
+* Add icon aliases: `addfile` => `file-add`, `addfolder` => `folder-open`, and the old type names are still working. [#4758](https://github.com/ant-design/ant-design/issues/4758)
 
 ## 2.6.4
 

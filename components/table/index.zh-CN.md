@@ -72,6 +72,8 @@ const columns = [{
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
 | onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |
+| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |
+| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |
@@ -124,7 +126,8 @@ const columns = [{
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时显示默认选择项 | object[] | true |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object[]\|boolean | true |
+| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 
 ### selection
 

@@ -17,6 +17,90 @@ timeline: true
 
 ---
 
+## 2.13.3
+
+`2017-09-22`
+
+- 修复 Affix 在内容与视口高度差小于 children 高度时触发的滚动抖动问题。[#2349](https://github.com/ant-design/ant-design/issues/2349)
+- 修复 `Card[title]` 为空且设置 `Card[extra]` 时样式错乱的问题。[f46112d#commitcomment-24480417](https://github.com/ant-design/ant-design/commit/f46112d38561c89780eb44ecbba82347d2b912da#commitcomment-24480417)
+- 修复 `Checkbox[children]` TypeScript definition。[#7650](https://github.com/ant-design/ant-design/issues/7650) [@liaokaien](https://github.com/liaokaien)
+- 修复 `getFieldDecorator` 内使用嵌套 id 后点击 `Form.Item` label 报错的问题。[#7693](https://github.com/ant-design/ant-design/issues/7693)
+- Input
+  - 修复 `Input.Group[compat]` 内嵌 `Select` 等控件时的样式问题。[#7662](https://github.com/ant-design/ant-design/issues/7662)
+  - 优化 `Input[autoComplete]` TypeScript 定义。[#7699](https://github.com/ant-design/ant-design/pull/7699) [@delesseps](https://github.com/delesseps)
+- LocaleProvider
+  - 新增葡萄牙语。[#7449](https://github.com/ant-design/ant-design/pull/7449) [@taviroquai](https://github.com/taviroquai)
+  - 修复荷兰语 locale 缺少文案的问题。[#7694](https://github.com/ant-design/ant-design/pull/7694) [@kstiopin](https://github.com/kstiopin)
+- Table
+  - 修复 `rowSelection` 导致的表头高度问题。[#7663](https://github.com/ant-design/ant-design/issues/7663)
+  - 修复使用 `rowSelection.hideDefaultselections` 时导致自定义选项点击没反应的问题。[#7626](https://github.com/ant-design/ant-design/issues/7626) [@infeng](https://github.com/infeng)
+  - 优化 `Table[scroll]` TypeScript definition。[#7640](https://github.com/ant-design/ant-design/pull/7640) [@BlackGanglion](https://github.com/BlackGanglion)
+
+## 2.13.2
+
+`2017-09-15`
+
+- 🐞 修复了 Card Extra 内容过多样式错乱的问题。[#7604](https://github.com/ant-design/ant-design/issues/7604)
+- 🐞 修复了分组 Menu 收缩时的错位问题。[#7109](https://github.com/ant-design/ant-design/issues/7109)
+- 🐞 回滚 [#7142](https://github.com/ant-design/ant-design/issues/7142) 里对固定列表格空数据的样式优化，修复带来的一系列样式问题。
+- 🐞 修复了 Form `getFieldDecoratorOptions` 缺失 `normalize` 以及 `validateFirst` 属性定义的问题。[#7552](https://github.com/ant-design/ant-design/issues/7552) [@meteor91](https://github.com/meteor91) [@mitchelldemler](https://github.com/mitchelldemler)
+- 🐞 修复了 Modal 的 `zIndex` 属性定义。[#7624](https://github.com/ant-design/ant-design/issues/7624)
+- 🌟 优化了 Tree 加载中图标的显示位置。[#7584](https://github.com/ant-design/ant-design/issues/7584)
+- 🌟 优化了大量组件的英文文档。[@khalibloo](https://github.com/khalibloo)
+
+## 2.13.1
+
+`2017-09-10`
+
+- 🐞 修复了 Card.Grid 的样式问题。[commit/c7d6ce](https://github.com/ant-design/ant-design/commit/c7d6ce5d3f7bfae1f2252d702fb1bdf04fdc80cb)
+- 🐞 修复了 Cascader 指针图标与文字重叠的问题。[#7475](https://github.com/ant-design/ant-design/issues/7475)
+- 🐞 修复了 Pagination 在简洁模式下前后按钮未展示的问题。[#7500](https://github.com/ant-design/ant-design/issues/7500)
+- 🐞 修复了 Slider 的 type 定义。[#7532](https://github.com/ant-design/ant-design/issues/7532)
+- Table
+  - 🐞 修复了在空数据情况下包含固定列时的一些样式问题。[#7457](https://github.com/ant-design/ant-design/issues/7457) [#7468](https://github.com/ant-design/ant-design/issues/7468) [#7470](https://github.com/ant-design/ant-design/issues/7470) [#7509](https://github.com/ant-design/ant-design/issues/7509)
+  - 🌟 补充了 API 文档。[#7525](https://github.com/ant-design/ant-design/pull/7525) [@hansnow](https://github.com/hansnow)
+- 🐞 修复了 Upload 的 type 定义。 [#7507](https://github.com/ant-design/ant-design/pull/7507) [@WingGao](https://github.com/WingGao)
+- 🐞 修复了 Submenu 展开时 inlineCollapsed Menu 的样式问题。[#7514](https://github.com/ant-design/ant-design/issues/7514)
+- 🐞 修复了一些表单控件的校验样式问题。[#7498](https://github.com/ant-design/ant-design/issues/7498)
+- 🐞 修复了 @link-hover-decoration 无效的问题。[#7531](https://github.com/ant-design/ant-design/issues/7531)
+- 🌟 优化了部分组件的英文文档。[@khalibloo](https://github.com/khalibloo)
+
+## 2.13.0
+
+`2017-09-01`
+
+- 🌟 Popconfirm 和 Modal 及其相关方法新增 `okType` 和 `cancelType` 用以指定按钮类型。[#6848](https://github.com/ant-design/ant-design/pull/6848) [@yociduo](https://github.com/yociduo)
+- 🌟 Modal 及其相关方法新增 `zIndex`。[#6880](https://github.com/ant-design/ant-design/pull/6880) [@Alex1990](https://github.com/Alex1990)
+- 🌟 RadioGroup 新增 `name` 属性。[#7009](https://github.com/ant-design/ant-design/pull/7009) [@djyde](https://github.com/djyde)
+- 🌟 Table 新增 `hideDefaultSelections` 属性。[#7295](https://github.com/ant-design/ant-design/issues/7295)
+- Dropdown
+  - 🌟 新增 `disabled` 属性。[#7102](https://github.com/ant-design/ant-design/pull/7102) [@yociduo](https://github.com/yociduo)
+  - 🌟 Menu 默认调整为不能选中。
+- 🌟 Pagination 的 `itemRender` 新增第三个参数 `originalElement`。
+- 🌟 AutoComplete 新增 `backfill` 属性，键盘选择时能回填选中项到输入框中。[#5764](https://github.com/ant-design/ant-design/issues/5764)
+- 🌟 Select 新增 `firstActiveValue` 属性，允许指定首次打开时默认选中的项。[#6318](https://github.com/ant-design/ant-design/issues/6318) [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
+- LocaleProvider
+  - 🌟 新增波斯语。[#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
+  - 🌟 新增希腊语。[#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)
+  - 🌟 新增挪威语。[#7122](https://github.com/ant-design/ant-design/pull/7122) [@santi](https://github.com/santi)
+  - 🌟 新增塞尔维亚语。[#7201](https://github.com/ant-design/ant-design/pull/7201) [@paunovic-stefan](https://github.com/paunovic-stefan)
+- 🐞 修复 Sider 隐藏时 Menu 的标题不会隐藏的问题。[#7409](https://github.com/ant-design/ant-design/issues/7409)
+- 🐞 修复 TypeScript 定义 [#7355](https://github.com/ant-design/ant-design/pull/7355) [#7378](https://github.com/ant-design/ant-design/pull/7378) [#7384](https://github.com/ant-design/ant-design/pull/7384)
+- 🐞 修复一些组件不能使用条件渲染的问题。[#6530](https://github.com/ant-design/ant-design/issues/6530)
+- 网站
+  - 🌟 新增快捷键 `s` 聚焦搜索框。
+  - 🌟 页脚新增主色修改预览功能。
+
+## 2.12.8
+
+`2017-08-27`
+
+- 📖 重写了 [《在 create-react-app 中使用》](/docs/react/use-with-create-react-app) 文档，现在不再需要 eject。[#7276](https://github.com/ant-design/ant-design/pull/7276)
+- 🌟 优化了固定列的空表格样式。[#7298](https://github.com/ant-design/ant-design/issues/7298)
+- 🐞 修复了 CheckboxGroup 和 Checkbox 的 `disabled` 属性逻辑。[#7266](https://github.com/ant-design/ant-design/issues/7266) [@dilidili](https://github.com/dilidili)
+- 🐞 修复在 react-snapshot 或 jsdom 环境下测试 Spin 和 Carousel 时报错的问题。[#3308](https://github.com/ant-design/ant-design/issues/3308) [#7318](https://github.com/ant-design/ant-design/issues/7318)
+- 🐞 修复 Select、Tooltip、Menu 的一些细节样式问题。
+
 ## 2.12.7
 
 `2017-08-21`

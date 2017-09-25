@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "2.12.7",
+  "version": "2.13.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -34,6 +34,10 @@
   ],
   "typings": "lib/index.d.ts",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "~0.14.0 || >=15.0.0",
+    "react-dom": "~0.14.0 || >=15.0.0"
+  },
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
@@ -57,14 +61,14 @@
     "rc-input-number": "~3.6.0",
     "rc-menu": "git+https://github.com/setState/menu.git#beta",
     "rc-notification": "~2.0.0",
-    "rc-pagination": "~1.10.0",
+    "rc-pagination": "~1.12.4",
     "rc-progress": "~2.2.2",
     "rc-rate": "~2.1.1",
     "rc-select": "git+https://github.com/setState/select.git#new",
-    "rc-slider": "~8.2.0",
+    "rc-slider": "~8.3.0",
     "rc-steps": "~2.5.1",
     "rc-switch": "~1.5.1",
-    "rc-table": "~5.4.0",
+    "rc-table": "~5.6.9",
     "rc-tabs": "~9.1.2",
     "rc-time-picker": "~2.4.1",
     "rc-tooltip": "~3.4.6",
@@ -73,14 +77,14 @@
     "rc-upload": "~2.4.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.10",
-    "react-slick": "~0.14.2",
+    "react-slick": "~0.15.0",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },
   "devDependencies": {
     "@types/react": "^15.0.38",
     "@types/react-dom": "~0.14.18",
-    "antd-tools": "~1.8.0",
+    "antd-tools": "~2.1.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-plugin-import": "^1.0.0",
@@ -89,7 +93,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "bezier-easing": "^2.0.3",
-    "bisheng": "^0.24.0",
+    "bisheng": "^0.25.0",
     "bisheng-plugin-antd": "^0.15.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.5.0",
@@ -119,6 +123,8 @@
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
     "pre-commit": "^1.2.2",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.0.1",
     "rc-scroll-anim": "^1.0.3",
@@ -156,9 +162,10 @@
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "tsc": "tsc",
-    "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
-    "site": "bisheng build --ssr -c ./site/bisheng.config.js",
-    "deploy": "antd-tools run clean && npm run site && bisheng gh-pages --push-only",
+    "start": "node ./scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js --no-livereload",
+    "start:preact": "node ./scripts/generateColorLess.js && cross-env NODE_ENV=development REACT_ENV=preact bisheng start -c ./site/bisheng.config.js --no-livereload",
+    "site": "cross-env NODE_ENV=production bisheng build --ssr -c ./site/bisheng.config.js",
+    "deploy": "antd-tools run clean && npm run site && node ./scripts/generateColorLess.js && bisheng gh-pages --push-only",
     "pub": "antd-tools run pub",
     "prepublish": "antd-tools run guard",
     "pre-publish": "npm run test-all && node ./scripts/prepub",
@@ -178,44 +185,6 @@
     "{site,components}/**/*.less": "stylelint --syntax less",
     "components/*/demo/*.md": [
       "lint-staged:demo"
-    ]
-  },
-  "jest": {
-    "setupFiles": [
-      "./tests/setup.js"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "md"
-    ],
-    "modulePathIgnorePatterns": [
-      "/_site/"
-    ],
-    "testPathIgnorePatterns": [
-      "dekko",
-      "/node_modules/",
-      "node"
-    ],
-    "transform": {
-      "\\.tsx?$": "./node_modules/typescript-babel-jest",
-      "\\.js$": "./node_modules/babel-jest",
-      "\\.md$": "./node_modules/antd-demo-jest"
-    },
-    "testRegex": ".*\\.test\\.js$",
-    "collectCoverageFrom": [
-      "components/**/*.{ts,tsx}",
-      "!components/*/style/index.tsx"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/",
-      "/dist/antd.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
     ]
   },
   "pre-commit": [
