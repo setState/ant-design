@@ -7,6 +7,7 @@
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
 @form-component-height: @input-height-lg;
+@form-feedback-icon-size: 14px;
 
 .reset-form();
 
@@ -149,17 +150,20 @@ form {
 
     // Fix overlapping between feedback icon and <Select>'s arrow.
     // https://github.com/ant-design/ant-design/issues/4431
+    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear {
       right: 28px;
     }
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
     }
 
     .@{ant-prefix}-cascader-picker {
       &-arrow {
-        padding-right: 36px;
+        margin-right: 21px;
       }
       &-clear {
         right: 28px;
@@ -167,7 +171,8 @@ form {
     }
 
     // Fix issue: https://github.com/ant-design/ant-design/issues/4783
-    .@{ant-prefix}-calendar-picker {
+    .@{ant-prefix}-calendar-picker,
+    .@{ant-prefix}-time-picker {
       &-icon,
       &-clear {
         right: 28px;
@@ -358,7 +363,7 @@ form {
     .square(@input-height-lg);
     line-height: @input-height-lg;
     text-align: center;
-    font-size: @font-size-lg;
+    font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;
     .iconfont-font("");
     z-index: 1;
@@ -411,6 +416,7 @@ form {
 
   // arrow and icon
   .@{ant-prefix}-calendar-picker-icon:after,
+  .@{ant-prefix}-time-picker-icon:after,
   .@{ant-prefix}-picker-icon:after,
   .@{ant-prefix}-select-arrow,
   .@{ant-prefix}-cascader-picker-arrow {
@@ -459,6 +465,7 @@ form {
 
   // arrow and icon
   .@{ant-prefix}-calendar-picker-icon:after,
+  .@{ant-prefix}-time-picker-icon:after,
   .@{ant-prefix}-picker-icon:after,
   .@{ant-prefix}-select-arrow,
   .@{ant-prefix}-cascader-picker-arrow {

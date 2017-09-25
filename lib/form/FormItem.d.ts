@@ -53,12 +53,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     getChildProp(prop: any): any;
     getId(): any;
     getMeta(): any;
-    renderHelp(): JSX.Element | null;
+    renderHelp(): JSX.Element;
     renderExtra(): JSX.Element | null;
-    getValidateStatus(): "" | "error" | "success" | "validating";
+    getValidateStatus(): "error" | "" | "success" | "validating";
     renderValidateWrapper(c1: any, c2: any, c3: any): JSX.Element;
     renderWrapper(children: any): JSX.Element;
     isRequired(): any;
+    onLabelClick: (e: any) => void;
     renderLabel(): JSX.Element | null;
     renderChildren(): (JSX.Element | null)[];
     renderFormItem(children: any): JSX.Element;

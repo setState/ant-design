@@ -22,11 +22,11 @@ export interface InputProps extends AbstractInputProps {
     addonAfter?: React.ReactNode;
     onPressEnter?: React.FormEventHandler<any>;
     onKeyDown?: React.FormEventHandler<any>;
-    onChange?: React.FormEventHandler<any>;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
     onClick?: React.FormEventHandler<any>;
     onFocus?: React.FormEventHandler<any>;
     onBlur?: React.FormEventHandler<any>;
-    autoComplete?: 'on' | 'off';
+    autoComplete?: string;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     spellCheck?: boolean;

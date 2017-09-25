@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-affix-width: 17;
+@input-affix-width: 17px;
 
 // size mixins for input
 .input-lg() {
@@ -44,7 +44,6 @@
   padding: @input-padding-vertical-base @input-padding-horizontal;
   width: 100%;
   height: @input-height-base;
-  cursor: text;
   font-size: @font-size-base;
   line-height: @line-height-base;
   color: @input-color;
@@ -72,6 +71,7 @@
     max-width: 100%; // prevent textearea resize from coming out of its container
     height: auto;
     vertical-align: bottom;
+    transition: all .3s, height 0s;
   }
 
   // Size
@@ -131,6 +131,9 @@
     float: left;
     width: 100%;
     margin-bottom: 0;
+    &:focus {
+      z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+    }
   }
 
   &-addon {
@@ -148,7 +151,7 @@
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
-      margin: -(@input-padding-vertical-base + 1) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
+      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
 
       .@{ant-prefix}-select-selection {
         background-color: inherit;
@@ -248,6 +251,9 @@
   }
 
   &&-compact {
+    display: inline-block;
+    .clearfix;
+
     & > * {
       border-radius: 0;
       border-right-width: 0;

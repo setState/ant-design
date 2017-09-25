@@ -21,14 +21,14 @@ export interface TransferProps {
     titles?: string[];
     operations?: string[];
     showSearch?: boolean;
-    filterOption: (inputValue: any, item: any) => boolean;
+    filterOption?: (inputValue: any, item: any) => boolean;
     searchPlaceholder?: string;
     notFoundContent?: React.ReactNode;
     footer?: (props: TransferListProps) => React.ReactNode;
     body?: (props: TransferListProps) => React.ReactNode;
     rowKey?: (record: TransferItem) => string;
     onSearchChange?: (direction: 'left' | 'right', e: Event) => void;
-    lazy?: {};
+    lazy?: {} | boolean;
     onScroll?: (direction: 'left' | 'right', e: Event) => void;
 }
 declare const _default: React.ComponentClass<TransferProps>;

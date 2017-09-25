@@ -10,13 +10,13 @@ export interface CardProps {
     style?: React.CSSProperties;
     loading?: boolean;
     noHovering?: boolean;
-    children?: any;
+    children?: React.ReactNode;
     id?: string;
     className?: string;
 }
-export default class Card extends Component<CardProps, any> {
+export default class Card extends Component<CardProps, {}> {
     static Grid: typeof Grid;
-    container: any;
+    container: HTMLDivElement;
     resizeEvent: any;
     updateWiderPaddingCalled: boolean;
     state: {
@@ -25,7 +25,7 @@ export default class Card extends Component<CardProps, any> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     updateWiderPadding(): void;
-    saveRef: (node: any) => void;
+    saveRef: (node: HTMLDivElement) => void;
     isContainGrid(): any;
     render(): JSX.Element;
 }
