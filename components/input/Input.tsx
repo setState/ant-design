@@ -27,6 +27,7 @@ export interface InputProps extends AbstractInputProps {
   id?: number | string;
   name?: string;
   size?: 'large' | 'default' | 'small';
+  maxLength?: string;
   disabled?: boolean;
   readOnly?: boolean;
   addonBefore?: React.ReactNode;
@@ -62,6 +63,7 @@ export default class Input extends Component<InputProps, any> {
       PropTypes.number,
     ]),
     size: PropTypes.oneOf(['small', 'default', 'large']),
+    maxLength: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.any,
     defaultValue: PropTypes.any,
@@ -134,12 +136,17 @@ export default class Input extends Component<InputProps, any> {
       [wrapperClassName]: (addonBefore || addonAfter),
     });
 
+    const groupClassName = classNames(`${props.prefixCls}-group-wrapper`, {
+      [`${props.prefixCls}-group-wrapper-sm`]: props.size === 'small',
+      [`${props.prefixCls}-group-wrapper-lg`]: props.size === 'large',
+    });
+
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
     if (addonBefore || addonAfter) {
       return (
         <span
-          className={`${props.prefixCls}-group-wrapper`}
+          className={groupClassName}
           style={props.style}
         >
           <span className={className}>

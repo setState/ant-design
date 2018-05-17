@@ -2,6 +2,7 @@ import React from 'react';
 import RcUpload from 'rc-upload';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import uniqBy from 'lodash.uniqby';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
@@ -55,8 +56,9 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      fileList: this.props.fileList || this.props.defaultFileList || [],
+      fileList: props.fileList || props.defaultFileList || [],
       dragState: 'drop',
     };
   }
@@ -218,6 +220,23 @@ export default class Upload extends React.Component<UploadProps, any> {
     });
   }
 
+  beforeUpload = (file, fileList) => {
+    if (!this.props.beforeUpload) {
+      return true;
+    }
+    const result = this.props.beforeUpload(file, fileList);
+    if (result === false) {
+      this.onChange({
+        file,
+        fileList: uniqBy(fileList.concat(this.state.fileList), (item: any) => item.uid),
+      });
+      return false;
+    } else if (result && (result as PromiseLike<any>).then) {
+      return result;
+    }
+    return true;
+  }
+
   clearProgressTimer() {
     clearInterval(this.progressTimer);
   }
@@ -234,6 +253,7 @@ export default class Upload extends React.Component<UploadProps, any> {
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
       ...this.props,
+      beforeUpload: this.beforeUpload,
     };
 
     delete rcUploadProps.className;

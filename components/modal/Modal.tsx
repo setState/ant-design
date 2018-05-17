@@ -41,6 +41,9 @@ export interface ModalProps {
   className?: string;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
   zIndex?: number;
+  bodyStyle?: React.CSSProperties;
+  maskStyle?: React.CSSProperties;
+  mask?: boolean;
 }
 
 export interface ModalContext {
@@ -169,11 +172,11 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     return (
       <Dialog
-        onClose={this.handleCancel}
-        footer={footer === undefined ? defaultFooter : footer}
         {...this.props}
+        footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}
+        onClose={this.handleCancel}
       />
     );
   }

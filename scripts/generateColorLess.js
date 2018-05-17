@@ -21,6 +21,10 @@ const COLOR_MAP = {
 
 const reducePlugin = postcss.plugin('reducePlugin', () => {
   const cleanRule = (rule) => {
+    if (rule.selector.startsWith('.main-color .palatte-')) {
+      rule.remove();
+      return;
+    }
     let removeRule = true;
     rule.walkDecls((decl) => {
       if (
@@ -49,28 +53,25 @@ const reducePlugin = postcss.plugin('reducePlugin', () => {
   };
 });
 
-async function generateCss() {
-  const antd = path.resolve(__dirname, '../');
-  const entry = path.join(antd, 'components/style/index.less');
-  let content = fs.readFileSync(entry).toString();
-  const styles = glob.sync(path.join(antd, 'components/*/style/index.less'));
-  content += '\n';
-  styles.forEach((style) => {
-    content += `@import "${style}";\n`;
-  });
-  content += `@import "${path.join(antd, 'site/theme/static/index.less')}";\n`;
-  fs.writeFileSync('/tmp/style.less', content);
+const antd = path.resolve(__dirname, '../');
+const entry = path.join(antd, 'components/style/index.less');
+let content = fs.readFileSync(entry).toString();
+const styles = glob.sync(path.join(antd, 'components/*/style/index.less'));
+content += '\n';
+styles.forEach((style) => {
+  content += `@import "${style}";\n`;
+});
+content += `@import "${path.join(antd, 'site/theme/static/index.less')}";\n`;
 
-  let result = (await less.render.call(less, content, {
-    paths: [path.join(antd, 'components/style')],
-  })).css;
-
-  result = (await postcss([
+less.render.call(less, content, {
+  paths: [path.join(antd, 'components/style')],
+}).then(({ css }) => {
+  return postcss([
     reducePlugin,
-  ]).process(result, { parser: less.parser, from: entry })).css;
-
+  ]).process(css, { parser: less.parser, from: entry });
+}).then(({ css }) => {
   Object.keys(COLOR_MAP).forEach((key) => {
-    result = result.replace(new RegExp(key, 'g'), COLOR_MAP[key]);
+    css = css.replace(new RegExp(key, 'g'), COLOR_MAP[key]);
   });
 
   const bezierEasing = fs.readFileSync(path.join(antd, 'components/style/color/bezierEasing.less')).toString();
@@ -80,16 +81,14 @@ async function generateCss() {
     .replace('@import "bezierEasing";', '')
     .replace('@import "tinyColor";', '');
 
-  result = `${colorPalette}\n${result}`;
-  result = `${tinyColor}\n${result}`;
-  result = `${bezierEasing}\n${result}`;
-  result = `@primary-color: #108ee9;\n${result}`;
+  css = `${colorPalette}\n${css}`;
+  css = `${tinyColor}\n${css}`;
+  css = `${bezierEasing}\n${css}`;
+  css = `@primary-color: #108ee9;\n${css}`;
 
   const siteDir = path.resolve(__dirname, '../_site');
   if (!fs.existsSync(siteDir)) {
     fs.mkdirSync(siteDir);
   }
-  fs.writeFileSync(path.resolve(__dirname, '../_site/color.less'), result);
-}
-
-generateCss();
+  fs.writeFileSync(path.resolve(__dirname, '../_site/color.less'), css);
+});

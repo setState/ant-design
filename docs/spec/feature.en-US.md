@@ -3,7 +3,7 @@ order: 1
 title: Features
 ---
 
-Unlike other design specifications, Ant Design pursues not only user experience, but also experience of desigers and developers, which practice a humanist design idea.
+Unlike other design specifications, Ant Design pursues not only user experience, but also experience of designers and developers, which practice a humanist design idea.
 
 <div style="margin-left:-40px;margin-right:-40px;overflow:hidden;margin-top:30px;">
   <div class="ant-col-8 features">
@@ -56,7 +56,7 @@ Unlike other design specifications, Ant Design pursues not only user experience,
 
 <img class="preview-img" align="right" alt="Charactor Count Sample" description="Make overflow text with color and underline instantly." src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
-"Diffrerence" is not always "better", but "better" is always different. Pursuing "better" in every details make our components is different, and also better naturally.
+"Difference" is not always "better", but "better" is always different. Pursuing "better" in every details make our components is different, and also better naturally.
 
 ### Compositive innovation
 
@@ -96,7 +96,7 @@ See more at [『Ant Design Principles』](/docs/spec/proximity).
 
 Beatuful looks, tide typography and smooth animation produce positive reaction at instinct level.
 
-Good functions, perfermance and usability produce positive reaction at behavious level.
+Good functions, performance and usability produce positive reaction at behavious level.
 
 Self-image, satisfaction, and good memories bring user a combining experience of thoughts and emotions at learning level.
 

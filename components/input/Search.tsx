@@ -4,11 +4,13 @@ import Input, { InputProps } from './Input';
 import Icon from '../icon';
 
 export interface SearchProps extends InputProps {
+  inputPrefixCls?: string;
   onSearch?: (value: string) => any;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
+    inputPrefixCls: 'ant-input',
     prefixCls: 'ant-input-search',
   };
   input: any;
@@ -20,20 +22,23 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.focus();
   }
   render() {
-    const { className, prefixCls, ...others } = this.props;
+    const { className, inputPrefixCls, prefixCls, suffix, ...others } = this.props;
     delete (others as any).onSearch;
-    const searchSuffix = (
+    const searchIcon = (
       <Icon
         className={`${prefixCls}-icon`}
         onClick={this.onSearch}
         type="search"
+        key="searchIcon"
       />
     );
+    const searchSuffix = suffix ? [suffix, searchIcon] : searchIcon;
     return (
       <Input
         onPressEnter={this.onSearch}
         {...others}
         className={classNames(prefixCls, className)}
+        prefixCls={inputPrefixCls}
         suffix={searchSuffix}
         ref={node => this.input = node}
       />

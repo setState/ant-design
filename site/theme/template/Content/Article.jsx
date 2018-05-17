@@ -65,12 +65,12 @@ export default class Article extends React.Component {
     });
   }
   render() {
-    const props = this.props;
-    const content = props.content;
+    const { props } = this;
+    const { content } = props;
 
     const { meta, description } = content;
     const { title, subtitle, filename } = meta;
-    const locale = this.context.intl.locale;
+    const { locale } = this.context.intl;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
@@ -80,8 +80,8 @@ export default class Article extends React.Component {
               type="warning"
               message={(
                 <span>
-                  This article has not been translated, hope that your can PR to translated it.
-                  <a href="https://github.com/ant-design/ant-design/issues/1471"> Help us!</a>
+                  This article has not been translated yet. Wan&apos;t to help us out?
+                  <a href="https://github.com/ant-design/ant-design/issues/1471">See this issue on GitHub.</a>
                 </span>
               )}
             />

@@ -2,7 +2,6 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
@@ -90,7 +89,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       }
 
       const child = childrenArray[i] as React.ReactElement<any>;
-      if (child.type as any === FormItem) {
+      if (child.type &&
+          (child.type as any === FormItem || (child.type as any).displayName === 'FormItem')) {
         continue;
       }
       if (!child.props) {
@@ -126,15 +126,11 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
-    const children = help ? (
-        <div className={`${prefixCls}-explain`} key="help">
-          {help}
-        </div>
-      ) : null;
-    return (
-      <Animate transitionName="show-help" component="" transitionAppear key="help">
-        {children}
-      </Animate>);
+    return help ? (
+      <div className={`${prefixCls}-explain`} key="help">
+        {help}
+      </div>
+    ) : null;
   }
 
   renderExtra() {
@@ -220,14 +216,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   // Resolve duplicated ids bug between different forms
   // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = (e) => {
+  onLabelClick = () => {
     const id = this.props.id || this.getId();
     if (!id) {
       return;
     }
     const controls = document.querySelectorAll(`[id="${id}"]`);
     if (controls.length !== 1) {
-      e.preventDefault();
       const control = findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
       if (control && control.focus) {
         control.focus();
