@@ -149,6 +149,10 @@
   min-width: 62px;
   width: 62px;
 }
+.ant-table-thead > tr > th.ant-table-selection-column .ant-radio-wrapper,
+.ant-table-tbody > tr > td.ant-table-selection-column .ant-radio-wrapper {
+  margin-right: 0;
+}
 .ant-table-expand-icon-th,
 .ant-table-row-expand-icon-cell {
   text-align: center;
@@ -254,7 +258,6 @@
   margin-left: 4px;
   display: inline-block;
   width: 14px;
-  height: 1em;
   vertical-align: middle;
   text-align: center;
 }
@@ -263,6 +266,7 @@
   line-height: 4px;
   display: block;
   width: 14px;
+  height: 6px;
   cursor: pointer;
 }
 .ant-table-column-sorter-up:hover .anticon,
@@ -387,7 +391,7 @@
 .ant-table-placeholder .anticon {
   margin-right: 4px;
 }
-.ant-table-pagination {
+.ant-table-pagination.ant-pagination {
   margin: 16px 0;
   float: right;
 }
@@ -408,7 +412,7 @@
   overflow-x: hidden;
 }
 .ant-table-filter-dropdown .ant-dropdown-menu-item > label + span {
-  padding: 0;
+  padding-right: 0;
 }
 .ant-table-filter-dropdown .ant-dropdown-menu-sub {
   border-radius: 4px;

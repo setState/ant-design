@@ -161,6 +161,9 @@
     text-align: center;
     min-width: 62px;
     width: 62px;
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
   }
 
   &-expand-icon-th,
@@ -298,7 +301,6 @@
     margin-left: 4px;
     display: inline-block;
     width: 14px;
-    height: 1em;
     vertical-align: middle;
     text-align: center;
 
@@ -307,6 +309,7 @@
       line-height: 4px;
       display: block;
       width: 14px;
+      height: 6px;
       cursor: pointer;
       &:hover .@{iconfont-css-prefix} {
         color: @text-color;
@@ -438,7 +441,7 @@
     }
   }
 
-  &-pagination {
+  &-pagination.@{ant-prefix}-pagination {
     margin: 16px 0;
     float: right;
   }
@@ -462,7 +465,7 @@
       }
 
       &-item > label + span {
-        padding: 0;
+        padding-right: 0;
       }
 
       &-sub {

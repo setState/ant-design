@@ -305,14 +305,14 @@
   transition: all .3s;
 }
 .ant-input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.25);
+  color: #bfbfbf;
   opacity: 1;
 }
 .ant-input:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.25);
+  color: #bfbfbf;
 }
 .ant-input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.25);
+  color: #bfbfbf;
 }
 .ant-input:hover {
   border-color: #49a9ee;
@@ -480,7 +480,7 @@ textarea.ant-input {
   float: left;
 }
 .ant-input-group.ant-input-group-compact {
-  display: inline-block;
+  display: block;
   zoom: 1;
 }
 .ant-input-group.ant-input-group-compact:before,
@@ -497,7 +497,7 @@ textarea.ant-input {
 .ant-input-group.ant-input-group-compact > * {
   border-radius: 0;
   border-right-width: 0;
-  vertical-align: middle;
+  vertical-align: top;
   float: none;
   display: inline-block;
 }
