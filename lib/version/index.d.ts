@@ -1,2 +1,2 @@
-declare var _default: "2.13.14";
-export default _default;
+import { version } from '../../package.json';
+export default version;

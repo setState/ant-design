@@ -274,7 +274,7 @@ form .ant-input-group-wrapper.ant-input-group-wrapper-sm {
 .ant-col-xl-24.ant-form-item-label label:after {
   display: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   .ant-col-xs-24.ant-form-item-label {
     padding: 0 0 8px;
     margin: 0;
@@ -286,7 +286,7 @@ form .ant-input-group-wrapper.ant-input-group-wrapper-sm {
     display: none;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .ant-col-sm-24.ant-form-item-label {
     padding: 0 0 8px;
     margin: 0;
@@ -298,7 +298,7 @@ form .ant-input-group-wrapper.ant-input-group-wrapper-sm {
     display: none;
   }
 }
-@media (max-width: 1199px) {
+@media (max-width: 991px) {
   .ant-col-md-24.ant-form-item-label {
     padding: 0 0 8px;
     margin: 0;
@@ -310,7 +310,7 @@ form .ant-input-group-wrapper.ant-input-group-wrapper-sm {
     display: none;
   }
 }
-@media (max-width: 1599px) {
+@media (max-width: 1199px) {
   .ant-col-lg-24.ant-form-item-label {
     padding: 0 0 8px;
     margin: 0;
