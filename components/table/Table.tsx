@@ -365,6 +365,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   toggleSortOrder(order, column) {
+    let ignoreSort = false;
+
     let { sortColumn, sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let isSortColumn = this.isSortColumn(column);
@@ -373,8 +375,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       sortColumn = column;
     } else {                      // 当前列已排序
       if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = '';
-        sortColumn = null;
+        // todo 设置排序无法点击取消
+        // sortOrder = '';
+        // sortColumn = null;
+        ignoreSort = true;
       } else {                    // 切换为排序状态
         sortOrder = order;
       }
@@ -383,6 +387,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       sortOrder,
       sortColumn,
     };
+
+    if (ignoreSort) {
+      return false;
+    }
 
     // Controlled
     if (this.getSortOrderColumns().length === 0) {
