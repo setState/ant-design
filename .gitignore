@@ -25,6 +25,8 @@ nohup.out
 _site
 _data
 /es
+/lib
+/dist
 elasticsearch-*
 config/base.yaml
 /.vscode/
