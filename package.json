@@ -39,6 +39,7 @@
     "react-dom": "~0.14.0 || >=15.0.0"
   },
   "dependencies": {
+    "@unovo/rc-dialog": "^7.2.1",
     "@unovo/rc-menu": "^5.1.2",
     "@unovo/rc-select": "^6.9.3",
     "array-tree-filter": "~1.0.0",
@@ -57,7 +58,6 @@
     "rc-cascader": "~0.11.3",
     "rc-checkbox": "~2.0.3",
     "rc-collapse": "~1.7.5",
-    "rc-dialog": "^7.1.0",
     "rc-dropdown": "~1.5.0",
     "rc-editor-mention": "~0.6.12",
     "rc-form": "~1.4.0",
