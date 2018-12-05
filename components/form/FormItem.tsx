@@ -168,9 +168,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       props.validateStatus;
 
     if (validateStatus) {
+      // hack 验证状态只有在hasFeedback启用时可见
       classes = classNames(
         {
-          'has-feedback': props.hasFeedback || validateStatus === 'validating',
+          'has-feedback': props.hasFeedback && validateStatus === 'validating',
           'has-success': validateStatus === 'success',
           'has-warning': validateStatus === 'warning',
           'has-error': validateStatus === 'error',
