@@ -13,27 +13,26 @@ title:
 
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
-````jsx
+```jsx
 import { Layout, Menu, Icon } from 'antd';
+
 const { Header, Sider, Content } = Layout;
 
 class SiderDemo extends React.Component {
   state = {
     collapsed: false,
   };
+
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
-  }
+  };
+
   render() {
     return (
       <Layout>
-        <Sider
-          trigger={null}
-          collapsible
-          collapsed={this.state.collapsed}
-        >
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
@@ -58,7 +57,14 @@ class SiderDemo extends React.Component {
               onClick={this.toggle}
             />
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+          <Content
+            style={{
+              margin: '24px 16px',
+              padding: 24,
+              background: '#fff',
+              minHeight: 280,
+            }}
+          >
             Content
           </Content>
         </Layout>
@@ -68,25 +74,24 @@ class SiderDemo extends React.Component {
 }
 
 ReactDOM.render(<SiderDemo />, mountNode);
-````
+```
 
-````css
+```css
 #components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;
-  padding: 0 16px;
+  padding: 0 24px;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 #components-layout-demo-custom-trigger .trigger:hover {
-  color: #108ee9;
+  color: #1890ff;
 }
 
 #components-layout-demo-custom-trigger .logo {
   height: 32px;
-  background: #333;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
-````
+```

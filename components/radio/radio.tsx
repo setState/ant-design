@@ -1,20 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
+import { RadioProps, RadioChangeEvent, RadioGroupContext } from './interface';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export type RadioProps = AbstractCheckboxProps;
-
-export default class Radio extends React.Component<RadioProps, any> {
+export default class Radio extends React.Component<RadioProps, {}> {
   static Group: typeof RadioGroup;
   static Button: typeof RadioButton;
 
   static defaultProps = {
-    prefixCls: 'ant-radio',
     type: 'radio',
   };
 
@@ -22,26 +20,49 @@ export default class Radio extends React.Component<RadioProps, any> {
     radioGroup: PropTypes.any,
   };
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return !shallowEqual(this.props, nextProps) ||
-           !shallowEqual(this.state, nextState) ||
-           !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
+  context: any;
+
+  private rcCheckbox: any;
+
+  shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
+    return (
+      !shallowEqual(this.props, nextProps) ||
+      !shallowEqual(this.state, nextState) ||
+      !shallowEqual(this.context.radioGroup, nextContext.radioGroup)
+    );
   }
 
-  render() {
+  focus() {
+    this.rcCheckbox.focus();
+  }
+
+  blur() {
+    this.rcCheckbox.blur();
+  }
+
+  saveCheckbox = (node: any) => {
+    this.rcCheckbox = node;
+  };
+
+  onChange = (e: RadioChangeEvent) => {
+    if (this.props.onChange) {
+      this.props.onChange(e);
+    }
+
+    if (this.context.radioGroup && this.context.radioGroup.onChange) {
+      this.context.radioGroup.onChange(e);
+    }
+  };
+
+  renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, context } = this;
-    const {
-      prefixCls,
-      className,
-      children,
-      style,
-      ...restProps,
-    } = props;
+    const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
     const { radioGroup } = context;
-    let radioProps: RadioProps = { ...restProps };
+    const prefixCls = getPrefixCls('radio', customizePrefixCls);
+    const radioProps: RadioProps = { ...restProps };
     if (radioGroup) {
       radioProps.name = radioGroup.name;
-      radioProps.onChange = radioGroup.onChange;
+      radioProps.onChange = this.onChange;
       radioProps.checked = props.value === radioGroup.value;
       radioProps.disabled = props.disabled || radioGroup.disabled;
     }
@@ -58,12 +79,13 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
       >
-        <RcCheckbox
-          {...radioProps}
-          prefixCls={prefixCls}
-        />
+        <RcCheckbox {...radioProps} prefixCls={prefixCls} ref={this.saveCheckbox} />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderRadio}</ConfigConsumer>;
   }
 }

@@ -11,9 +11,9 @@ title:
 
 ## en-US
 
-Decent icon make information more clear and more friendly.
+A relevant icon will make information clearer and more friendly.
 
-````jsx
+```jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(
@@ -23,14 +23,14 @@ ReactDOM.render(
     <Alert message="Warning" type="warning" showIcon />
     <Alert message="Error" type="error" showIcon />
     <Alert
-      message="success tips"
-      description="Detailed description and advices about successful copywriting."
+      message="Success Tips"
+      description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
     />
     <Alert
       message="Informational Notes"
-      description="Additional description and informations about copywriting."
+      description="Additional description and information about copywriting."
       type="info"
       showIcon
     />
@@ -46,6 +46,7 @@ ReactDOM.render(
       type="error"
       showIcon
     />
-  </div>
-, mountNode);
-````
+  </div>,
+  mountNode,
+);
+```

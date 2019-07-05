@@ -7,14 +7,14 @@ describe('Popover', () => {
     const popover = mount(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
-      </Popover>
+      </Popover>,
     );
 
-    expect(popover.node.getPopupDomNode()).toBe(null);
+    expect(popover.instance().getPopupDomNode()).toBe(null);
 
     popover.find('span').simulate('click');
 
-    const popup = popover.node.getPopupDomNode();
+    const popup = popover.instance().getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();

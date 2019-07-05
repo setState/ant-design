@@ -13,7 +13,7 @@ title:
 
 For letter type Avatar, when the letters are too long to display, the font size can be automatically adjusted according to the width of the Avatar.
 
-````jsx
+```jsx
 import { Avatar, Button } from 'antd';
 
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
@@ -27,23 +27,32 @@ class Autoset extends React.Component {
       color: colorList[0],
     };
   }
+
   changeUser = () => {
     const index = UserList.indexOf(this.state.user);
     this.setState({
       user: index < UserList.length - 1 ? UserList[index + 1] : UserList[0],
       color: index < colorList.length - 1 ? colorList[index + 1] : colorList[0],
     });
-  }
+  };
+
   render() {
     return (
       <div>
-        <Avatar style={{ backgroundColor: this.state.color }} size="large">{this.state.user}</Avatar>
-        <Button size="small" style={{ marginLeft: 16 }} onClick={this.changeUser}>Change</Button>
+        <Avatar style={{ backgroundColor: this.state.color, verticalAlign: 'middle' }} size="large">
+          {this.state.user}
+        </Avatar>
+        <Button
+          size="small"
+          style={{ marginLeft: 16, verticalAlign: 'middle' }}
+          onClick={this.changeUser}
+        >
+          Change
+        </Button>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Autoset />
-, mountNode);
-````
+ReactDOM.render(<Autoset />, mountNode);
+```

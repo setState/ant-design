@@ -1,45 +1,88 @@
-import React from 'react';
+import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
+import CollapsePanel from './CollapsePanel';
+import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
+
+export type ExpandIconPosition = 'left' | 'right';
 
 export interface CollapseProps {
   activeKey?: Array<string> | string;
   defaultActiveKey?: Array<string>;
   /** 手风琴效果 */
   accordion?: boolean;
-  onChange?: (key: string | string[]) => void;
+  destroyInactivePanel?: boolean;
+  onChange?: (key: string | string[]) => void;
   style?: React.CSSProperties;
   className?: string;
   bordered?: boolean;
   prefixCls?: string;
+  expandIcon?: (panelProps: PanelProps) => React.ReactNode;
+  expandIconPosition?: ExpandIconPosition;
 }
 
-export interface CollapsePanelProps {
-  key: string;
-  header: React.ReactNode;
-  disabled?: boolean;
+interface PanelProps {
+  isActive?: boolean;
+  header?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-}
-
-export class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
+  showArrow?: boolean;
+  forceRender?: boolean;
+  disabled?: boolean;
+  extra?: React.ReactNode;
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {
-  static Panel: typeof CollapsePanel = RcCollapse.Panel;
+  static Panel = CollapsePanel;
 
   static defaultProps = {
-    prefixCls: 'ant-collapse',
     bordered: true,
     openAnimation: { ...animation, appear() {} },
+    expandIconPosition: 'left',
+  };
+
+  renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
+    const { expandIcon } = this.props;
+    const icon = expandIcon ? (
+      expandIcon(panelProps)
+    ) : (
+      <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
+    );
+    return React.isValidElement(icon)
+      ? React.cloneElement(icon as any, {
+          className: `${prefixCls}-arrow`,
+        })
+      : icon;
+  };
+
+  renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      className = '',
+      bordered,
+      expandIconPosition,
+    } = this.props;
+    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+    const collapseClassName = classNames(
+      {
+        [`${prefixCls}-borderless`]: !bordered,
+        [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+      },
+      className,
+    );
+    return (
+      <RcCollapse
+        {...this.props}
+        expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
+        prefixCls={prefixCls}
+        className={collapseClassName}
+      />
+    );
   };
 
   render() {
-    const { prefixCls, className = '', bordered } = this.props;
-    const collapseClassName = classNames({
-      [`${prefixCls}-borderless`]: !bordered,
-    }, className);
-    return <RcCollapse {...this.props} className={collapseClassName} />;
+    return <ConfigConsumer>{this.renderCollapse}</ConfigConsumer>;
   }
 }

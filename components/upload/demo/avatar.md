@@ -9,7 +9,7 @@ title:
 
 点击上传用户头像，并使用 `beforeUpload` 限制用户上传的图片格式和大小。
 
-> `beforeUpload` 的返回值可以是一个 Promise 以支持也支持异步检查：[示例](http://react-component.github.io/upload/examples/beforeUpload.html)。
+> `beforeUpload` 的返回值可以是一个 Promise 以支持异步处理，如服务端校验等：[示例](http://react-component.github.io/upload/examples/beforeUpload.html)。
 
 ## en-US
 
@@ -17,7 +17,7 @@ Click to upload user's avatar, and validate size and format of picture with `bef
 
 > The return value of function `beforeUpload` can be a Promise to check asynchronously. [demo](http://react-component.github.io/upload/examples/beforeUpload.html)
 
-````jsx
+```jsx
 import { Upload, Icon, message } from 'antd';
 
 function getBase64(img, callback) {
@@ -39,56 +39,56 @@ function beforeUpload(file) {
 }
 
 class Avatar extends React.Component {
-  state = {};
+  state = {
+    loading: false,
+  };
 
-  handleChange = (info) => {
+  handleChange = info => {
+    if (info.file.status === 'uploading') {
+      this.setState({ loading: true });
+      return;
+    }
     if (info.file.status === 'done') {
       // Get this url from response in real world.
-      getBase64(info.file.originFileObj, imageUrl => this.setState({ imageUrl }));
+      getBase64(info.file.originFileObj, imageUrl =>
+        this.setState({
+          imageUrl,
+          loading: false,
+        }),
+      );
     }
-  }
+  };
 
   render() {
-    const imageUrl = this.state.imageUrl;
+    const uploadButton = (
+      <div>
+        <Icon type={this.state.loading ? 'loading' : 'plus'} />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    );
+    const { imageUrl } = this.state;
     return (
       <Upload
-        className="avatar-uploader"
         name="avatar"
+        listType="picture-card"
+        className="avatar-uploader"
         showUploadList={false}
-        action="//jsonplaceholder.typicode.com/posts/"
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         beforeUpload={beforeUpload}
         onChange={this.handleChange}
       >
-        {
-          imageUrl ?
-            <img src={imageUrl} alt="" className="avatar" /> :
-            <Icon type="plus" className="avatar-uploader-trigger" />
-        }
+        {imageUrl ? <img src={imageUrl} alt="avatar" /> : uploadButton}
       </Upload>
     );
   }
 }
 
 ReactDOM.render(<Avatar />, mountNode);
-````
+```
 
-````css
-.avatar-uploader,
-.avatar-uploader-trigger,
-.avatar {
-  width: 150px;
-  height: 150px;
+```css
+.avatar-uploader > .ant-upload {
+  width: 128px;
+  height: 128px;
 }
-.avatar-uploader {
-  display: block;
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.avatar-uploader-trigger {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 28px;
-  color: #999;
-}
-````
+```

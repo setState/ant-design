@@ -13,43 +13,38 @@ title:
 
 You can add an icon beside the slider to make it meaningful.
 
-````jsx
+```jsx
 import { Slider, Icon } from 'antd';
 
 class IconSlider extends React.Component {
-  constructor(props) {
-    super(props);
-    const { max, min } = props;
-    const mid = ((max - min) / 2).toFixed(5);
-    this.state = {
-      preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
-      nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
-      mid,
-      sliderValue: this.props.value,
-    };
-  }
-  handleChange = (v) => {
-    this.setState({
-      preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
-      nextIconClass: v >= this.state.mid ? 'anticon-highlight' : '',
-      sliderValue: v,
-    });
-  }
+  state = {
+    value: 0,
+  };
+
+  handleChange = value => {
+    this.setState({ value });
+  };
+
   render() {
+    const { max, min } = this.props;
+    const { value } = this.state;
+    const mid = ((max - min) / 2).toFixed(5);
+    const preColor = value >= mid ? '' : 'rgba(0, 0, 0, .45)';
+    const nextColor = value >= mid ? 'rgba(0, 0, 0, .45)' : '';
     return (
       <div className="icon-wrapper">
-        <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-        <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
-        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
+        <Icon style={{ color: preColor }} type="frown-o" />
+        <Slider {...this.props} onChange={this.handleChange} value={value} />
+        <Icon style={{ color: nextColor }} type="smile-o" />
       </div>
     );
   }
 }
 
-ReactDOM.render(<IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-o']} />, mountNode);
-````
+ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
+```
 
-````css
+```css
 .icon-wrapper {
   position: relative;
   padding: 0px 30px;
@@ -57,12 +52,12 @@ ReactDOM.render(<IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-
 
 .icon-wrapper .anticon {
   position: absolute;
-  top: -3px;
+  top: -2px;
   width: 16px;
   height: 16px;
   line-height: 1;
   font-size: 16px;
-  color: @disabled-color;
+  color: rgba(0, 0, 0, 0.25);
 }
 
 .icon-wrapper .anticon:first-child {
@@ -72,8 +67,4 @@ ReactDOM.render(<IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-
 .icon-wrapper .anticon:last-child {
   right: 0;
 }
-
-.anticon.anticon-highlight {
-  color: #666;
-}
-````
+```

@@ -1,7 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 export interface ColumnGroupProps {
   title?: React.ReactNode;
+  className?: string;
 }
 
 export default class ColumnGroup extends React.Component<ColumnGroupProps, React.ComponentState> {
